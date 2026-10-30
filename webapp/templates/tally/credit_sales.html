@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% block title %}{{ tool.name }} — {{ app_name }}{% endblock %}
+{% block page_title %}Tally{% endblock %}
+{% block page_subtitle %}Credit and delivery sales against the receipts posted for them{% endblock %}
+{% block content %}
+
+{% include "tally/_tabs.html" %}
+
+{% if error %}
+<div class="card flash-err" style="margin-bottom:16px;padding:14px 16px;">
+  <div style="font-size:13px;font-weight:600;margin-bottom:4px;">Could not build this report</div>
+  <div style="font-size:12.5px;white-space:pre-wrap;line-height:1.55;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;">{{ error }}</div>
+</div>
+{% endif %}
+
+{% if not report %}
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+  <div class="card">
+    <h2 style="font-size:15px;font-weight:600;margin:0 0 4px;color:var(--fg);">{{ tool.name }}</h2>
+    <p style="font-size:12.5px;color:var(--muted-fg);margin:0 0 18px;">{{ tool.help }}</p>
+
+    <form method="post" action="/tally/credit_sales/run" enctype="multipart/form-data">
+      <div class="dropzone" style="margin-bottom:16px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 10px;display:block;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5Z"/><path d="M14 2v6h6M9 15l3-3 3 3M12 12v6"/></svg>
+        <div style="font-size:14px;font-weight:600;color:var(--fg);">Transaction Detail by Account</div>
+        <div style="font-size:12px;color:var(--muted-fg);margin-top:3px;">Must include the Distribution account column</div>
+        <input type="file" name="file" accept="{{ tool.accept }}" required style="margin-top:12px;" />
+      </div>
+
+      <div style="display:flex;gap:12px;margin-bottom:14px;">
+        <div style="flex:1;">
+          <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">From date</label>
+          <input type="date" name="date_from" class="input" required />
+        </div>
+        <div style="flex:1;">
+          <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">To date</label>
+          <input type="date" name="date_to" class="input" required />
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-bottom:16px;">
+        <div style="flex:1;">
+          <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Sales journal prefix</label>
+          <input name="prefix" class="input" value="DS" />
+        </div>
+        <div style="flex:1;">
+          <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Receipt type</label>
+          <input name="receipt_type" class="input" value="Deposit" />
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" style="width:100%;height:42px;font-size:14px;justify-content:center;margin-bottom:14px;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg>
+        Build report
+      </button>
+
+      <div style="display:flex;gap:9px;align-items:flex-start;background:color-mix(in srgb,var(--gold) 9%,transparent);border:1px solid color-mix(in srgb,var(--gold) 28%,transparent);border-radius:9px;padding:11px 13px;">
+        <span style="color:var(--gold);font-size:14px;line-height:1;margin-top:1px;">💡</span>
+        <p style="font-size:12px;color:var(--fg);margin:0;line-height:1.5;">{{ tool.tip }}</p>
+      </div>
+    </form>
+  </div>
+
+  {% include "tally/_recent.html" %}
+</div>
+
+{% else %}
+<div x-data="{ tab: 'summary', locOpen: false, acctOpen: false }">
+
+  <!-- Filter bar -->
+  <div class="card" style="padding:14px;margin-bottom:16px;">
+    <form method="post" action="/tally/credit_sales/refine" style="display:flex;flex-wrap:wrap;gap:12px;align-items:end;">
+      <input type="hidden" name="run_id" value="{{ run.id }}" />
+      <input type="hidden" name="locations_present" value="1" />
+      <input type="hidden" name="accounts_present" value="1" />
+      <div>
+        <label style="font-size:11.5px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">From date</label>
+        <input type="date" name="date_from" class="input" style="width:auto;" value="{{ to_iso(run.date_from) }}" />
+      </div>
+      <div>
+        <label style="font-size:11.5px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">To date</label>
+        <input type="date" name="date_to" class="input" style="width:auto;" value="{{ to_iso(run.date_to) }}" />
+      </div>
+      <div>
+        <label style="font-size:11.5px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Prefix</label>
+        <input name="prefix" class="input" style="width:80px;" value="{{ run.prefix }}" />
+      </div>
+      <div>
+        <label style="font-size:11.5px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Receipt type</label>
+        <input name="receipt_type" class="input" style="width:120px;" value="{{ run.receipt_type }}" />
+      </div>
+
+      {% for field, label, options, chosen, flag in [
+          ('locations', 'Locations', report.all_locations, report.locations, 'locOpen'),
+          ('accounts', 'Accounts', report.all_accounts, report.accounts, 'acctOpen')] %}
+      <div style="position:relative;">
+        <label style="font-size:11.5px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">{{ label }}</label>
+        <button type="button" @click="{{ flag }} = !{{ flag }}" class="btn btn-secondary" style="height:38px;">
+          {{ chosen|length }} of {{ options|length }} selected
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div x-show="{{ flag }}" x-cloak @click.outside="{{ flag }} = false"
+             style="position:absolute;z-index:30;top:100%;left:0;margin-top:6px;width:320px;max-height:320px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);padding:10px;">
+          <div style="display:flex;gap:8px;margin-bottom:8px;">
+            <button type="button" class="btn btn-secondary" style="height:28px;font-size:12px;flex:1;"
+                    @click="$el.closest('.card').querySelectorAll('input[name={{ field }}]').forEach(c => c.checked = true)">All</button>
+            <button type="button" class="btn btn-secondary" style="height:28px;font-size:12px;flex:1;"
+                    @click="$el.closest('.card').querySelectorAll('input[name={{ field }}]').forEach(c => c.checked = false)">None</button>
+          </div>
+          {% for option in options %}
+          <label style="display:flex;align-items:center;gap:9px;padding:5px 4px;font-size:12.5px;color:var(--fg);cursor:pointer;">
+            <input type="checkbox" name="{{ field }}" value="{{ option }}" style="accent-color:var(--gold);"
+                   {% if option in chosen %}checked{% endif %} />
+            {{ option }}
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+
+      <button class="btn btn-primary" type="submit" style="height:38px;">Update</button>
+
+      <div style="flex:1;"></div>
+      <a class="btn btn-secondary" style="height:38px;" href="/tally/runs/{{ run.id }}/print" target="_blank" rel="noopener">Print HTML</a>
+      <a class="btn btn-primary" style="height:38px;" href="/tally/runs/{{ run.id }}/pdf">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Account-wise PDF
+      </a>
+    </form>
+    <div style="margin-top:10px;font-size:11.5px;color:var(--muted-fg);">
+      <strong style="color:var(--fg);">{{ report.company }}</strong> — {{ '{:,}'.format(report.transaction_count) }} transactions ·
+      {{ run.file_name }} · {{ run.date_from }} to {{ run.date_to }}
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  {% set tabs = [('summary','Location Summary'),('detail','Account Detail'),('tx','Transactions'),('excluded','Excluded Deposits')] %}
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+    {% for key, label in tabs %}
+    <button type="button" @click="tab = '{{ key }}'"
+            :style="tab === '{{ key }}'
+              ? 'border-color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold);'
+              : 'border-color:var(--border);background:var(--card);color:var(--fg);'"
+            style="height:32px;padding:0 14px;border-radius:999px;border:1px solid;font-size:12.5px;font-weight:500;cursor:pointer;">
+      {{ label }}{% if key == 'excluded' and report.excluded %} ({{ report.excluded|length }}){% endif %}
+    </button>
+    {% endfor %}
+  </div>
+
+  <!-- Location Summary -->
+  <div x-show="tab === 'summary'" class="card" style="padding:0;overflow:hidden;margin-bottom:16px;">
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr>{% for h in report.summary_headers %}<th {% if not loop.first %}style="text-align:right;"{% endif %}>{{ h }}</th>{% endfor %}</tr></thead>
+        <tbody>
+          {% for row in report.summary %}
+          <tr>
+            <td style="white-space:nowrap;">{{ row[0] }}</td>
+            {% for v in row[1:] %}<td style="text-align:right;font-variant-numeric:tabular-nums;{% if v is none %}color:var(--muted-fg);font-style:italic;{% endif %}">{{ display(v) }}</td>{% endfor %}
+          </tr>
+          {% endfor %}
+          <tr style="background:color-mix(in srgb,var(--gold) 10%,var(--card-2));font-weight:700;">
+            <td>{{ report.total[0] }}</td>
+            {% for v in report.total[1:] %}<td style="text-align:right;font-variant-numeric:tabular-nums;">{{ display(v) }}</td>{% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Account Detail with editable opening balances -->
+  <div x-show="tab === 'detail'" x-cloak class="card" style="padding:0;overflow:hidden;margin-bottom:16px;">
+    <form method="post" action="/tally/credit_sales/openings">
+      <input type="hidden" name="run_id" value="{{ run.id }}" />
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr>{% for h in report.detail_headers %}<th {% if loop.index0 > 1 %}style="text-align:right;"{% endif %}>{{ h }}</th>{% endfor %}</tr></thead>
+          <tbody>
+            {% set ns = namespace(last='') %}
+            {% for row in report.details %}
+            {% if row[0] != ns.last %}
+            {% set ns.last = row[0] %}
+            <tr><td colspan="{{ report.detail_headers|length }}" style="background:var(--card-2);font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted-fg);padding:8px 14px;">{{ row[0] }}</td></tr>
+            {% endif %}
+            <tr>
+              <td style="color:var(--muted-fg);font-size:12px;white-space:nowrap;">{{ row[0] }}</td>
+              <td style="white-space:nowrap;">{{ row[1] }}</td>
+              <td style="text-align:right;">
+                <input type="hidden" name="loc_{{ loop.index0 }}" value="{{ row[0] }}" />
+                <input type="hidden" name="acct_{{ loop.index0 }}" value="{{ row[1] }}" />
+                <input name="open_{{ loop.index0 }}" class="input"
+                       style="height:30px;font-size:12px;width:120px;text-align:right;font-variant-numeric:tabular-nums;"
+                       placeholder="Opening needed"
+                       value="{% if row[2] is not none %}{{ row[2] }}{% endif %}" />
+              </td>
+              {% for v in row[3:] %}
+              <td style="text-align:right;font-variant-numeric:tabular-nums;{% if v is none %}color:var(--muted-fg);font-style:italic;{% endif %}">{{ display(v) }}</td>
+              {% endfor %}
+            </tr>
+            {% else %}
+            <tr><td colspan="{{ report.detail_headers|length }}" style="text-align:center;color:var(--muted-fg);padding:2rem;">No accounts matched the selected filters.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 18px;border-top:1px solid var(--border);">
+        <p style="margin:0;font-size:12px;color:var(--muted-fg);line-height:1.5;">
+          Opening balances are as of <strong style="color:var(--fg);">{{ report.as_of.strftime('%m/%d/%Y') }}</strong>.
+          Leave a box empty when the balance is unknown — a blank is never treated as zero.
+        </p>
+        <button class="btn btn-primary" type="submit" style="height:36px;">Save opening balances</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Transactions -->
+  <div x-show="tab === 'tx'" x-cloak class="card" style="padding:0;overflow:hidden;margin-bottom:16px;">
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr>{% for h in report.tx_headers %}<th {% if loop.index0 == 8 %}style="text-align:right;"{% endif %}>{{ h }}</th>{% endfor %}</tr></thead>
+        <tbody>
+          {% for row in report.transactions %}
+          {% set cls = row[9] %}
+          {% set tone = 'var(--success)' if cls.startswith('Sales') else ('var(--gold)' if cls.startswith('Receipts') else 'var(--muted-fg)') %}
+          <tr>
+            <td style="color:var(--muted-fg);font-size:12px;">{{ row[0] }}</td>
+            <td style="white-space:nowrap;font-variant-numeric:tabular-nums;">{{ display(row[1]) }}</td>
+            <td style="font-size:12px;">{{ row[2] }}</td>
+            <td style="font-size:12px;">{{ row[3] }}</td>
+            <td style="font-size:12px;white-space:nowrap;">{{ row[4] }}</td>
+            <td style="font-size:12px;white-space:nowrap;">{{ row[5] }}</td>
+            <td style="font-size:12px;color:var(--muted-fg);max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="{{ row[6] }}">{{ row[6] }}</td>
+            <td style="font-size:12px;color:var(--muted-fg);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="{{ row[7] }}">{{ row[7] }}</td>
+            <td style="text-align:right;font-variant-numeric:tabular-nums;">{{ display(row[8]) }}</td>
+            <td><span style="display:inline-block;white-space:nowrap;font-size:11px;font-weight:600;border-radius:6px;padding:2px 8px;background:color-mix(in srgb,{{ tone }} 15%,transparent);color:{{ tone }};">{{ cls }}</span></td>
+          </tr>
+          {% else %}
+          <tr><td colspan="{{ report.tx_headers|length }}" style="text-align:center;color:var(--muted-fg);padding:2rem;">No transactions fall within the selected dates and filters.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Excluded deposits -->
+  <div x-show="tab === 'excluded'" x-cloak class="card" style="padding:0;overflow:hidden;margin-bottom:16px;">
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr>{% for h in report.tx_headers + ['Exclusion reason'] %}<th {% if loop.index0 == 8 %}style="text-align:right;"{% endif %}>{{ h }}</th>{% endfor %}</tr></thead>
+        <tbody>
+          {% for row in report.excluded %}
+          <tr>
+            <td style="color:var(--muted-fg);font-size:12px;">{{ row[0] }}</td>
+            <td style="white-space:nowrap;font-variant-numeric:tabular-nums;">{{ display(row[1]) }}</td>
+            <td style="font-size:12px;">{{ row[2] }}</td>
+            <td style="font-size:12px;">{{ row[3] }}</td>
+            <td style="font-size:12px;white-space:nowrap;">{{ row[4] }}</td>
+            <td style="font-size:12px;white-space:nowrap;">{{ row[5] }}</td>
+            <td style="font-size:12px;color:var(--muted-fg);max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="{{ row[6] }}">{{ row[6] }}</td>
+            <td style="font-size:12px;color:var(--muted-fg);max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="{{ row[7] }}">{{ row[7] }}</td>
+            <td style="text-align:right;font-variant-numeric:tabular-nums;">{{ display(row[8]) }}</td>
+            <td style="font-size:12px;">{{ row[9] }}</td>
+            <td style="font-size:12px;color:var(--danger);">{{ row[10] }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="{{ report.tx_headers|length + 1 }}" style="text-align:center;color:var(--muted-fg);padding:2rem;">No deposits were excluded.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Report notes -->
+  <div class="card" style="padding:0;overflow:hidden;background:color-mix(in srgb,var(--gold) 7%,var(--card));">
+    <div style="padding:13px 18px;border-bottom:1px solid var(--border);">
+      <h2 style="font-size:14px;font-weight:600;margin:0;color:var(--fg);">Report notes</h2>
+      <p style="margin:2px 0 0;font-size:12px;color:var(--muted-fg);">Read these before relying on the balances above.</p>
+    </div>
+    <ul style="margin:0;padding:12px 18px 14px 34px;">
+      {% for note in report.warnings %}
+      <li style="font-size:12.5px;color:var(--fg);line-height:1.6;margin-bottom:5px;">{{ note }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block title %}Settings — {{ app_name }}{% endblock %}
+{% block page_title %}Settings{% endblock %}
+{% block page_subtitle %}Locations and chart-of-accounts mapping{% endblock %}
+{% block content %}
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+  <!-- Left: locations -->
+  <div style="display:flex;flex-direction:column;gap:16px;">
+
+    <!-- Add location -->
+    <div class="card">
+      <h2 style="font-size:14px;font-weight:600;margin:0 0 14px;color:var(--fg);">Add location</h2>
+      <form method="post" action="/settings/locations/create">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+          <div>
+            <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Code</label>
+            <input name="code" class="input" placeholder="e.g. 7411" required />
+          </div>
+          <div>
+            <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Name</label>
+            <input name="name" class="input" placeholder="Store name" required />
+          </div>
+          <div>
+            <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Cash account</label>
+            <input name="cash_account" class="input" placeholder="1000" />
+          </div>
+          <div>
+            <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Bank account</label>
+            <input name="bank_account" class="input" placeholder="1010" />
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          Add location
+        </button>
+      </form>
+    </div>
+
+    <!-- Locations list -->
+    <div class="card" style="padding:0;overflow:hidden;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 20px 12px;">
+        <h2 style="font-size:14px;font-weight:600;margin:0;color:var(--fg);">Locations</h2>
+        <span style="font-size:12px;color:var(--muted-fg);">Edit inline</span>
+      </div>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr>
+              <th style="padding-left:20px;">Code</th><th>Name</th><th>Cash</th><th>Bank</th><th>Active</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for loc in locations %}
+            <tr>
+              <td style="padding-left:20px;font-weight:700;font-family:ui-monospace,monospace;font-size:12px;color:var(--fg);">{{ loc.code }}</td>
+              <td>
+                <form method="post" action="/settings/locations/{{ loc.id }}/update" style="display:flex;gap:6px;align-items:center;">
+                  <input name="name" class="input" value="{{ loc.name }}" style="height:32px;font-size:12.5px;" />
+                  <input name="cash_account" class="input" value="{{ loc.cash_account }}" placeholder="Cash" style="width:80px;height:32px;font-size:12px;font-family:ui-monospace,monospace;" />
+                  <input name="bank_account" class="input" value="{{ loc.bank_account }}" placeholder="Bank" style="width:80px;height:32px;font-size:12px;font-family:ui-monospace,monospace;" />
+              </td>
+              <td>
+                  <label style="font-size:12px;display:inline-flex;align-items:center;gap:4px;color:var(--muted-fg);">
+                    <input type="checkbox" name="is_active" value="1" {% if loc.is_active %}checked{% endif %} style="accent-color:var(--gold);" />
+                    Active
+                  </label>
+              </td>
+              <td>
+                  <button class="btn btn-secondary" type="submit" style="height:30px;font-size:12px;">Save</button>
+                </form>
+              </td>
+              <td>
+                <form method="post" action="/settings/locations/{{ loc.id }}/delete" onsubmit="return confirm('Delete location {{ loc.code }}?')">
+                  <button style="color:var(--muted-fg);cursor:pointer;padding:4px;display:inline-flex;background:none;border:none;" type="submit" title="Delete">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+                  </button>
+                </form>
+              </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="6" style="padding:1rem 20px;color:var(--muted-fg);font-size:13px;">No locations.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right: COA mapping -->
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div class="card">
+      <h2 style="font-size:14px;font-weight:600;margin:0 0 5px;color:var(--fg);">Chart of accounts mapping</h2>
+      <p style="font-size:12px;color:var(--muted-fg);margin:0;line-height:1.5;">Accounts for every converter are driven by these rules. Remittance &amp; Daily Sales match line description, Payroll matches position, Hotel matches a fixed slot, Invoice matches a keyword.</p>
+    </div>
+
+    {% for group in coa_groups %}
+    <div class="card" style="padding:0;overflow:hidden;" x-data="{ open: {{ 'true' if group.scope == 'remittance' else 'false' }} }">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;cursor:pointer;" @click="open = !open">
+        <h3 style="font-size:13.5px;font-weight:600;margin:0;color:var(--fg);">{{ group.label }} <span style="color:var(--muted-fg);font-weight:400;">({{ group.rules|length }} rules)</span></h3>
+        <span style="font-size:12px;color:var(--gold);" x-text="open ? 'Hide' : 'Show'">Show</span>
+      </div>
+      <div x-show="open" x-cloak>
+        <div class="table-wrap">
+          <table class="data">
+            <thead>
+              <tr>
+                <th style="padding-left:20px;">Match</th><th>Account</th><th>Type</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for rule in group.rules %}
+              <tr>
+                <td style="padding-left:20px;color:var(--fg);">{{ rule.source_contains }}</td>
+                <td style="font-size:12px;color:var(--fg);">{{ rule.account }}</td>
+                <td>
+                  <span style="font-size:11px;font-weight:600;border-radius:6px;padding:2px 8px;{% if rule.entry_type == 'DEBIT' %}background:color-mix(in srgb,#3b82f6 14%,transparent);color:#1d4ed8;{% else %}background:color-mix(in srgb,#ec4899 14%,transparent);color:#9d174d;{% endif %}">{{ rule.entry_type }}</span>
+                </td>
+                <td>
+                  <form method="post" action="/settings/coa/{{ rule.id }}/delete" onsubmit="return confirm('Delete rule?')">
+                    <button style="color:var(--muted-fg);cursor:pointer;padding:4px;display:inline-flex;background:none;border:none;" type="submit" title="Delete rule">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              {% else %}
+              <tr><td colspan="4" style="padding-left:20px;color:var(--muted-fg);font-size:13px;">No rules — converter uses built-in defaults.</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;padding:12px 20px;border-top:1px solid var(--border);background:var(--card-2);">
+          <form method="post" action="/settings/coa/create" style="display:flex;gap:8px;align-items:center;width:100%;">
+            <input type="hidden" name="tool_scope" value="{{ group.scope }}" />
+            <input type="hidden" name="output_description" value="" />
+            <input name="source_contains" class="input" placeholder="Match text" style="flex:1;min-width:0;height:34px;font-size:12.5px;" required />
+            <input name="account" class="input" placeholder="Account" style="flex:1;min-width:0;height:34px;font-size:12.5px;font-family:ui-monospace,monospace;" required />
+            <select name="entry_type" class="input" style="width:auto;height:34px;font-size:11.5px;font-weight:600;">
+              <option>DEBIT</option><option>CREDIT</option>
+            </select>
+            <button class="btn btn-primary" type="submit" style="height:34px;padding:0 13px;font-size:12.5px;white-space:nowrap;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+              Add
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

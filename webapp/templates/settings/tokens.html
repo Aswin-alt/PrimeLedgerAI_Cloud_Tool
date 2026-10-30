@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}API Tokens — {{ app_name }}{% endblock %}
+{% block page_title %}API Tokens{% endblock %}
+{% block page_subtitle %}Tokens for QuickBooks Online / automation integrations{% endblock %}
+{% block content %}
+
+{% if new_token %}
+<div style="margin-bottom:16px;border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);background:color-mix(in srgb,var(--gold) 9%,transparent);border-radius:12px;padding:14px 16px;">
+  <div style="font-size:13px;font-weight:600;color:var(--fg);margin-bottom:6px;">New token — copy once, it won't be shown again</div>
+  <code style="display:block;font-family:ui-monospace,monospace;font-size:12px;word-break:break-all;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--fg);">{{ new_token }}</code>
+</div>
+{% endif %}
+
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;">
+
+  <!-- Tokens table -->
+  <div class="card" style="padding:0;overflow:hidden;">
+    <table class="data">
+      <thead>
+        <tr>
+          <th style="padding-left:20px;">Name</th><th>Created</th><th>Last used</th><th>Status</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in tokens %}
+        <tr>
+          <td style="padding-left:20px;font-weight:500;color:var(--fg);">{{ t.name }}</td>
+          <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ t.created_at }}</td>
+          <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ t.last_used_at or '—' }}</td>
+          <td>
+            <span style="font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:{% if t.is_active %}var(--success){% else %}var(--muted-fg){% endif %};">
+              <span style="width:7px;height:7px;border-radius:50%;background:{% if t.is_active %}var(--success){% else %}var(--muted-fg){% endif %};"></span>
+              {{ 'Active' if t.is_active else 'Revoked' }}
+            </span>
+          </td>
+          <td style="text-align:right;">
+            {% if t.is_active %}
+            <form method="post" action="/settings/tokens/{{ t.id }}/revoke" class="inline">
+              <button type="submit" style="font-size:12.5px;color:var(--danger);font-weight:500;background:none;border:none;cursor:pointer;">Revoke</button>
+            </form>
+            {% endif %}
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5" style="text-align:center;color:var(--muted-fg);padding:2rem;">No tokens yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Create token -->
+  <div class="card" style="align-self:start;">
+    <h2 style="font-size:14px;font-weight:600;margin:0 0 4px;color:var(--fg);">Create token</h2>
+    <p style="font-size:12px;color:var(--muted-fg);margin:0 0 14px;">For QuickBooks Online / automation integrations.</p>
+    <form method="post" action="/settings/tokens/create">
+      <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Name</label>
+      <input name="name" class="input" placeholder="QBO sync" required style="margin-bottom:14px;" />
+      <button class="btn btn-primary" type="submit" style="width:100%;">Generate token</button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

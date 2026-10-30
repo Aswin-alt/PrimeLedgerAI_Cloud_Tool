@@ -1,0 +1,22 @@
+[Unit]
+Description=PrimeLedgerAI Cloud
+After=network.target mysql.service
+Wants=mysql.service
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/primeledger
+Environment="PATH=/opt/primeledger/.venv/bin"
+ExecStart=/opt/primeledger/.venv/bin/gunicorn webapp.main:app \
+    -k uvicorn.workers.UvicornWorker \
+    --workers 3 \
+    --bind 127.0.0.1:8000 \
+    --timeout 120 \
+    --access-logfile - \
+    --error-logfile -
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

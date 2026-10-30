@@ -1,0 +1,155 @@
+﻿Journal No.,Journal Date,Account,Debits,Credits,Description,Name,Location
+DS0905-5164,09/05/2026,Sales A/C,,3040.51,Net Sales,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Tax Payable:Sales Tax Payable,,203.18,Total Sales Tax,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Food Discount A/c,85.17,,Total Discounts,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Food Discount A/c,,85.17,Total Discounts - Offset,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Tips Payable,,359.54,Credit Tips Received,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Tips Payable,386.68,,Credit Tips Paid,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Credit Sales:Doordash - Sales,16.07,,Tender: Door Dash,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Credit Sales:Doordash - Sales,13.59,,Tender: Doordash VRB,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Credit Sales:Doordash - Sales,100.00,,Tender: Online,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Credit Sales:Credit card - Sales to Dennys,770.89,,Tender: Master Card,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Credit Sales:Credit card - Sales to Dennys,1140.17,,Tender: Visa,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Credit Sales:Credit card - Sales to Dennys,631.17,,Tender: Debit,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Credit Sales:Credit card - Sales to Dennys,93.10,,Tender: American Express,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Gift Card Payable,6.94,,Tender: Gift Card,,5164-Berkshire OH
+DS0905-5164,09/05/2026,Cash on Hand - Berkshire OH,444.62,,Tender: Cash (net),,5164-Berkshire OH
+DS0905-5165,09/05/2026,Sales A/C,,2382.08,Net Sales,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Tax Payable:Sales Tax Payable,,147.57,Total Sales Tax,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Food Discount A/c,84.24,,Total Discounts,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Food Discount A/c,,84.24,Total Discounts - Offset,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Tips Payable,,225.28,Credit Tips Received,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Tips Payable,449.75,,Credit Tips Paid,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Credit Sales:Doordash - Sales,127.31,,Tender: Door Dash,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Credit Sales:Uber Eats - Sales,21.87,,Tender: Uber Eats,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Credit Sales:Doordash - Sales,82.74,,Tender: Online,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Credit Sales:Credit card - Sales to Dennys,259.06,,Tender: Master Card,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Credit Sales:Credit card - Sales to Dennys,607.91,,Tender: Visa,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Credit Sales:Credit card - Sales to Dennys,102.23,,Tender: Discover,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Credit Sales:Credit card - Sales to Dennys,520.71,,Tender: Debit,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Credit Sales:Credit card - Sales to Dennys,111.12,,Tender: American Express,,5165-Perrysburg OH
+DS0905-5165,09/05/2026,"Cash on Hand - Perrysburg,OH",475.23,,Tender: Cash (net),,5165-Perrysburg OH
+DS0905-5165,09/05/2026,Daily Sales Variance,,3.00,Auto-balance: source tender variance,,5165-Perrysburg OH
+DS0905-5166,09/05/2026,Sales A/C,,2959.52,Net Sales,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Tax Payable:Sales Tax Payable,,174.41,Total Sales Tax,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Food Discount A/c,70.57,,Total Discounts,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Food Discount A/c,,70.57,Total Discounts - Offset,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Tips Payable,,340.35,Credit Tips Received,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Tips Payable,202.86,,Credit Tips Paid,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Credit Sales:Doordash - Sales,19.96,,Tender: Door Dash,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Credit Sales:Doordash - Sales,66.58,,Tender: Online,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Credit Sales:Credit card - Sales to Dennys,951.28,,Tender: Master Card,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Credit Sales:Credit card - Sales to Dennys,1278.38,,Tender: Visa,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Credit Sales:Credit card - Sales to Dennys,19.55,,Tender: Discover,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Credit Sales:Credit card - Sales to Dennys,373.31,,Tender: Debit,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Credit Sales:Credit card - Sales to Dennys,77.23,,Tender: American Express,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Gift Card Payable,40.87,,Tender: Gift Card,,5166-Jeffersonville
+DS0905-5166,09/05/2026,Cash on Hand - Jeffersonville,444.26,,Tender: Cash (net),,5166-Jeffersonville
+DS0905-5167,09/05/2026,Sales A/C,,2812.16,Net Sales,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Tax Payable:Sales Tax Payable,,228.29,Total Sales Tax,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Food Discount A/c,73.02,,Total Discounts,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Food Discount A/c,,73.02,Total Discounts - Offset,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Tips Payable,,238.59,Credit Tips Received,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Tips Payable,225.56,,Credit Tips Paid,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Doordash - Sales,154.31,,Tender: Door Dash,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Doordash - Sales,41.79,,Tender: Doordash VRB,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Uber Eats - Sales,100.41,,Tender: Uber Eats,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Uber Eats - Sales,55.51,,Tender: Uber Eats VR,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Doordash - Sales,89.52,,Tender: Online,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Credit card - Sales to Dennys,290.69,,Tender: Master Card,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Credit card - Sales to Dennys,1537.56,,Tender: Visa,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Credit card - Sales to Dennys,89.64,,Tender: Discover,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Credit card - Sales to Dennys,402.21,,Tender: Debit,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Credit Sales:Credit card - Sales to Dennys,40.27,,Tender: American Express,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Gift Card Payable,19.27,,Tender: Gift Card,,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Cash on Hand - Elizabethtown-KY,241.30,,Tender: Cash (net),,5167-Elizabethtown KY
+DS0905-5167,09/05/2026,Daily Sales Variance,,9.00,Auto-balance: source tender variance,,5167-Elizabethtown KY
+DS0905-5168,09/05/2026,Sales A/C,,3544.02,Net Sales,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Tax Payable:Sales Tax Payable,,212.68,Total Sales Tax,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Food Discount A/c,68.16,,Total Discounts,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Food Discount A/c,,68.16,Total Discounts - Offset,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Tips Payable,,345.48,Credit Tips Received,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Tips Payable,441.48,,Credit Tips Paid,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Credit Sales:Doordash - Sales,54.63,,Tender: Door Dash,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Credit Sales:Uber Eats - Sales,20.85,,Tender: Uber Eats,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Credit Sales:Credit card - Sales to Dennys,656.59,,Tender: Master Card,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Credit Sales:Credit card - Sales to Dennys,1490.91,,Tender: Visa,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Credit Sales:Credit card - Sales to Dennys,97.17,,Tender: Discover,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Credit Sales:Credit card - Sales to Dennys,600.61,,Tender: Debit,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Credit Sales:Credit card - Sales to Dennys,50.72,,Tender: American Express,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Gift Card Payable,25.00,,Tender: Gift Card,,5168-Catlettsburg KY
+DS0905-5168,09/05/2026,Cash on hand - Catlettsburg KY,664.22,,Tender: Cash (net),,5168-Catlettsburg KY
+DS0905-5169,09/05/2026,Sales A/C,,3293.01,Net Sales,,5169-Columbus OH
+DS0905-5169,09/05/2026,Tax Payable:Sales Tax Payable,,203.71,Total Sales Tax,,5169-Columbus OH
+DS0905-5169,09/05/2026,Food Discount A/c,155.92,,Total Discounts,,5169-Columbus OH
+DS0905-5169,09/05/2026,Food Discount A/c,,155.92,Total Discounts - Offset,,5169-Columbus OH
+DS0905-5169,09/05/2026,Tips Payable,,294.26,Credit Tips Received,,5169-Columbus OH
+DS0905-5169,09/05/2026,Tips Payable,410.15,,Credit Tips Paid,,5169-Columbus OH
+DS0905-5169,09/05/2026,Cash Paid Outs,160.00,,Cash Paid Outs - Non Adjusting,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Doordash - Sales,383.74,,Tender: Door Dash,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Doordash - Sales,18.17,,Tender: Doordash VRB,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Doordash - Sales,63.74,,Tender: Doordash VRM,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Uber Eats - Sales,69.80,,Tender: Uber Eats,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Uber Eats - Sales,71.03,,Tender: Uber Eats VR,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Grubhub - Sales,62.03,,Tender: Grub Hub,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Grubhub - Sales,15.89,,Tender: Grubhub VRM,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:QR Pay - Sales,308.04,,Tender: QR Pay,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Doordash - Sales,30.06,,Tender: Online,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Credit card - Sales to Dennys,547.73,,Tender: Master Card,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Credit card - Sales to Dennys,863.97,,Tender: Visa,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Credit card - Sales to Dennys,56.53,,Tender: Discover,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Credit card - Sales to Dennys,577.72,,Tender: Debit,,5169-Columbus OH
+DS0905-5169,09/05/2026,Credit Sales:Credit card - Sales to Dennys,49.20,,Tender: American Express,,5169-Columbus OH
+DS0905-5169,09/05/2026,Cash on Hand - Columbus OH,103.18,,Tender: Cash (net),,5169-Columbus OH
+DS0905-7401,09/05/2026,Sales A/C,,4087.12,Net Sales,,7401-Youngstown
+DS0905-7401,09/05/2026,Tax Payable:Sales Tax Payable,,157.86,Total Sales Tax,,7401-Youngstown
+DS0905-7401,09/05/2026,Food Discount A/c,85.18,,Total Discounts,,7401-Youngstown
+DS0905-7401,09/05/2026,Food Discount A/c,,85.18,Total Discounts - Offset,,7401-Youngstown
+DS0905-7401,09/05/2026,Tips Payable,,260.93,Credit Tips Received,,7401-Youngstown
+DS0905-7401,09/05/2026,Tips Payable,195.20,,Credit Tips Paid,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Doordash - Sales,721.10,,Tender: Door Dash,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Doordash - Sales,52.57,,Tender: Doordash Banda Burrito,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Doordash - Sales,76.84,,Tender: Doordash VRM,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Doordash - Sales,26.16,,Tender: Doordash Nathans,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Uber Eats - Sales,23.48,,Tender: Uber Eats,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Uber Eats - Sales,53.94,,Tender: Uber Eats VR,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Uber Eats - Sales,61.94,,Tender: Uber Eats Nathans,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Grubhub - Sales,111.46,,Tender: Grub Hub,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Doordash - Sales,296.08,,Tender: Online,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Credit card - Sales to Dennys,564.08,,Tender: Master Card,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Credit card - Sales to Dennys,406.71,,Tender: Visa,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Credit card - Sales to Dennys,157.78,,Tender: Discover,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Credit card - Sales to Dennys,836.83,,Tender: Debit,,7401-Youngstown
+DS0905-7401,09/05/2026,Credit Sales:Credit card - Sales to Dennys,44.26,,Tender: American Express,,7401-Youngstown
+DS0905-7401,09/05/2026,Cash on Hand - Youngstown,831.23,,Tender: Cash (net),,7401-Youngstown
+DS0905-7401,09/05/2026,Daily Sales Variance,46.25,,Auto-balance: source tender variance,,7401-Youngstown
+DS0905-9690,09/05/2026,Sales A/C,,2268.79,Net Sales,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Tax Payable:Sales Tax Payable,,147.10,Total Sales Tax,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Food Discount A/c,105.44,,Total Discounts,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Food Discount A/c,,105.44,Total Discounts - Offset,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Tips Payable,,179.30,Credit Tips Received,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Tips Payable,280.24,,Credit Tips Paid,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Credit Sales:Doordash - Sales,90.66,,Tender: Door Dash,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Credit Sales:Doordash - Sales,95.50,,Tender: Online,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Credit Sales:Credit card - Sales to Dennys,280.95,,Tender: Master Card,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Credit Sales:Credit card - Sales to Dennys,158.34,,Tender: Visa,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Credit Sales:Credit card - Sales to Dennys,77.05,,Tender: Discover,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Credit Sales:Credit card - Sales to Dennys,1240.90,,Tender: Debit,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Gift Card Payable,110.37,,Tender: Gift Card,,9690 - Marietta Rest
+DS0905-9690,09/05/2026,Cash on Hand - Marietta,261.18,,Tender: Cash (net),,9690 - Marietta Rest
+DS0905-9697,09/05/2026,Sales A/C,,3865.96,Net Sales,,9697-Findley
+DS0905-9697,09/05/2026,Tax Payable:Sales Tax Payable,,241.28,Total Sales Tax,,9697-Findley
+DS0905-9697,09/05/2026,Food Discount A/c,65.45,,Total Discounts,,9697-Findley
+DS0905-9697,09/05/2026,Food Discount A/c,,65.45,Total Discounts - Offset,,9697-Findley
+DS0905-9697,09/05/2026,Tips Payable,,336.06,Credit Tips Received,,9697-Findley
+DS0905-9697,09/05/2026,Tips Payable,235.73,,Credit Tips Paid,,9697-Findley
+DS0905-9697,09/05/2026,Credit Sales:Doordash - Sales,311.97,,Tender: Door Dash,,9697-Findley
+DS0905-9697,09/05/2026,Credit Sales:Doordash - Sales,28.37,,Tender: Doordash VRB,,9697-Findley
+DS0905-9697,09/05/2026,Credit Sales:QR Pay - Sales,99.42,,Tender: QR Pay,,9697-Findley
+DS0905-9697,09/05/2026,Credit Sales:Doordash - Sales,72.75,,Tender: Online,,9697-Findley
+DS0905-9697,09/05/2026,Credit Sales:Credit card - Sales to Dennys,415.16,,Tender: Master Card,,9697-Findley
+DS0905-9697,09/05/2026,Credit Sales:Credit card - Sales to Dennys,822.06,,Tender: Visa,,9697-Findley
+DS0905-9697,09/05/2026,Credit Sales:Credit card - Sales to Dennys,102.27,,Tender: Discover,,9697-Findley
+DS0905-9697,09/05/2026,Credit Sales:Credit card - Sales to Dennys,1588.73,,Tender: Debit,,9697-Findley
+DS0905-9697,09/05/2026,Gift Card Payable,42.39,,Tender: Gift Card,,9697-Findley
+DS0905-9697,09/05/2026,Cash on Hand - Findlay,724.45,,Tender: Cash (net),,9697-Findley

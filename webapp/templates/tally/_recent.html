@@ -1,0 +1,22 @@
+<div class="card">
+  <h2 style="font-size:15px;font-weight:600;margin:0 0 14px;color:var(--fg);">Recent runs</h2>
+  <div style="display:flex;flex-direction:column;">
+    {% for r in recent %}
+    {% set ok = r.status == 'completed' %}
+    <a href="/tally/{{ r.tool }}?run_id={{ r.id }}"
+       style="display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--border);text-decoration:none;">
+      <div style="width:34px;height:34px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:{% if ok %}color-mix(in srgb,var(--success) 14%,transparent){% else %}color-mix(in srgb,var(--danger) 14%,transparent){% endif %};color:{% if ok %}var(--success){% else %}var(--danger){% endif %};">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          {% if ok %}<path d="M20 6 9 17l-5-5"/>{% else %}<path d="M18 6 6 18M6 6l12 12"/>{% endif %}
+        </svg>
+      </div>
+      <div style="min-width:0;flex:1;">
+        <div style="font-size:13px;font-weight:500;color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ r.message or r.file_name }}</div>
+        <div style="font-size:11px;color:var(--muted-fg);">{{ r.date_from }} – {{ r.date_to }} · {{ r.created_at }}</div>
+      </div>
+    </a>
+    {% else %}
+    <div style="padding:24px 0;text-align:center;font-size:13px;color:var(--muted-fg);">No runs yet.</div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,10 @@
+{% set tally_list = [
+  ('cash_deposit', 'Cash & Deposit Match'),
+  ('credit_sales', 'Credit Sales Report'),
+] %}
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
+  {% for key, name in tally_list %}
+  <a href="/tally/{{ key }}"
+     style="height:34px;padding:0 14px;border-radius:999px;font-size:12.5px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;border:1px solid {% if tool_key == key %}var(--gold){% else %}var(--border){% endif %};background:{% if tool_key == key %}color-mix(in srgb,var(--gold) 16%,transparent){% else %}var(--card){% endif %};color:{% if tool_key == key %}var(--gold){% else %}var(--fg){% endif %};">{{ name }}</a>
+  {% endfor %}
+</div>

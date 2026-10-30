@@ -1,0 +1,448 @@
+﻿Account name,Account type,Detail type,Lock
+Cans on Hand - Elizabethtown - 5167,Bank,Cash on hand,No
+Cash - drawer - previous owner,Bank,Cash on hand,No
+Cash on Hand - Berkshire OH,Bank,Cash on hand,No
+Cash on hand - Catlettsburg KY,Bank,Cash on hand,No
+Cash on Hand - Columbus OH,Bank,Cash on hand,No
+Cash on Hand - Elizabethtown-KY,Bank,Cash on hand,No
+Cash on Hand - Findlay,Bank,Cash on hand,No
+Cash on Hand - Ganesh,Bank,Cash on hand,No
+Cash on Hand - Jeffersonville,Bank,Cash on hand,No
+Cash on Hand - Kamal,Bank,Cash on hand,No
+Cash on Hand - Marietta,Bank,Cash on hand,No
+Cash on Hand - Marietta Hotel,Bank,Cash on hand,No
+"Cash on Hand - Perrysburg,OH",Bank,Cash on hand,No
+Cash on Hand - Youngstown,Bank,Cash on hand,No
+Cash Paid Outs,Bank,Cash on hand,No
+Cash-Unsettled,Bank,Cash on hand,No
+Chase Ac 1162,Bank,Checking,No
+Chase Ac- 9788 Findlay(NB),Bank,Checking,No
+Check received (Sales),Bank,Cash on hand,No
+Company Transfer,Bank,Cash on hand,No
+Credit Card Swipe and Direct Deposit,Bank,Cash on hand,No
+Daily Sales Variance,Bank,Cash on hand,No
+Den Ohio - Previous owner,Bank,Cash on hand,No
+Denn Ohio LLC (Previous Owner),Bank,Cash on hand,No
+FC Bank AC# 0606,Bank,Cash on hand,No
+FC Bank Ac#0167 - Nights and Bites,Bank,Checking,No
+FCB - Cattletsburgh ac# 7079,Bank,Checking,No
+FCB - Columbus ac# 7037,Bank,Checking,No
+FCB - ETown ac# 7045,Bank,Checking,No
+FCB - Jeffersonville ac# 2945,Bank,Checking,No
+FCB - Perrysburgh ac# 7061,Bank,Checking,No
+FCB - Sunbury ac# 7053,Bank,Checking,No
+Front Desk-Guest Ledger,Bank,Cash on hand,No
+Guest Ledger Balance,Bank,Cash on hand,No
+Marietta Restaurant llc (1842) - 1,Bank,Checking,No
+Sam Ashnani - Previous owner,Bank,Cash on hand,No
+TryCake POS System,Bank,Checking,No
+Welcome Diner (1678) - 1,Bank,Checking,No
+Accounts Receivable (A/R),Accounts receivable (A/R),Accounts Receivable (A/R),No
+Advance for Purchase Dennys,Other Current Assets,Other Current Assets,No
+Allowance for bad debts,Other Current Assets,Allowance for Bad Debts,No
+Credit Sales,Other Current Assets,Other Current Assets,No
+Credit Sales:Amendments - Doordash,Other Current Assets,Other Current Assets,No
+Credit Sales:Credit card - Sales to Dennys,Other Current Assets,Other Current Assets,No
+Credit Sales:Credit Card Sales - Amex,Other Current Assets,Other Current Assets,No
+Credit Sales:Credit card Sales - Marietta Hotel,Other Current Assets,Other Current Assets,No
+Credit Sales:Direct Bill,Other Current Assets,Other Current Assets,No
+Credit Sales:Doordash - Sales,Other Current Assets,Other Current Assets,No
+Credit Sales:DoorDash - VRB,Other Current Assets,Other Current Assets,No
+Credit Sales:DoorDash - VRBUR,Other Current Assets,Other Current Assets,No
+Credit Sales:Doordash - VRM,Other Current Assets,Other Current Assets,No
+Credit Sales:Doordash - VRNAT,Other Current Assets,Other Current Assets,No
+Credit Sales:Food sales In Gift Card,Other Current Assets,Other Current Assets,No
+Credit Sales:Gift Card - Sales,Other Current Assets,Other Current Assets,No
+Credit Sales:GrubHub - sales,Other Current Assets,Other Current Assets,No
+Credit Sales:Grubhub - VRBUR,Other Current Assets,Other Current Assets,No
+Credit Sales:Grubhub - VRM,Other Current Assets,Other Current Assets,No
+Credit Sales:Grubhub - VRNAT,Other Current Assets,Other Current Assets,No
+Credit Sales:Grubhub- VRB,Other Current Assets,Other Current Assets,No
+Credit Sales:OLO Sales,Other Current Assets,Other Current Assets,No
+Credit Sales:QR Pay - Sales,Other Current Assets,Other Current Assets,No
+Credit Sales:Uber Eats - Sales,Other Current Assets,Other Current Assets,No
+Credit Sales:Uber Eats - VRBUR,Other Current Assets,Other Current Assets,No
+Credit Sales:Uber Eats - VRM,Other Current Assets,Other Current Assets,No
+Credit Sales:Uber Eats VRM - Sales,Other Current Assets,Other Current Assets,No
+Credit Sales:UberEat - VR,Other Current Assets,Other Current Assets,No
+Credit Sales:UberEat- VRNAT,Other Current Assets,Other Current Assets,No
+Credit Sales:Web Payment,Other Current Assets,Other Current Assets,No
+Denny's FLIP Agreement,Other Current Assets,Other Current Assets,No
+Dennys Purchase -6 hotels,Other Current Assets,Loans to Others,No
+Employee cash advances,Other Current Assets,Employee Cash Advances,No
+Equipment Purchases,Other Current Assets,Inventory,No
+Equity to be paid,Other Current Assets,Other Current Assets,No
+Food item Purchases,Other Current Assets,Inventory,No
+House Charges - Findlay,Other Current Assets,Other Current Assets,No
+Inventory,Other Current Assets,Inventory,No
+Inventory Asset,Other Current Assets,Inventory,No
+Jordan Account,Other Current Assets,Other Current Assets,No
+Loans to officers,Other Current Assets,Loans To Officers,No
+Loans to others,Other Current Assets,Loans to Others,No
+Loans to shareholders,Other Current Assets,Loans to Stockholders,No
+Marietta Hotel - exp,Other Current Assets,Other Current Assets,No
+Marietta Hotels - Expenses Reim,Other Current Assets,Loans to Others,No
+Other Current Assets,Other Current Assets,Other Current Assets,No
+Payroll Advance paid,Other Current Assets,Employee Cash Advances,No
+Prepaid expenses,Other Current Assets,Prepaid Expenses,No
+Purchases - 2,Other Current Assets,Inventory,No
+Purchases - 3,Other Current Assets,Inventory,No
+Purchases - Webers,Other Current Assets,Inventory,No
+Real estate loans to others,Other Current Assets,Investment - Mortgage/Real Estate Loans,No
+Richton - Loan,Other Current Assets,Loans to Others,No
+Salary Advance,Other Current Assets,Other Current Assets,No
+Tax exempt investments,Other Current Assets,Investment - Tax-Exempt Securities,No
+Third party Sales - No Tax,Other Current Assets,Other Current Assets,No
+U.S. savings bonds and investments,Other Current Assets,Investment - U.S. Government Obligations,No
+Uncategorized Asset,Other Current Assets,Other Current Assets,No
+Uncategorized assets,Other Current Assets,Other Current Assets,No
+Undeposited Funds,Other Current Assets,Undeposited Funds,No
+Accumulated amortization,Fixed Assets,Accumulated Amortization,No
+Accumulated depreciation,Fixed Assets,Accumulated Depreciation,No
+Building/ Leasehold Improvements,Fixed Assets,Buildings,No
+Buildings,Fixed Assets,Buildings,No
+Capital Expenses for dennys-fixed asset,Fixed Assets,Other fixed assets,No
+Capital Expenses for youngstown-fixed asset,Fixed Assets,Machinery & Equipment,No
+Car Purchase,Fixed Assets,Vehicles,No
+Furniture & fixtures,Fixed Assets,Furniture & Fixtures,No
+Hvac - Equipment,Fixed Assets,Machinery & Equipment,No
+Improvements,Fixed Assets,Leasehold Improvements,No
+Kitchen Equipment,Fixed Assets,Machinery & Equipment,No
+Land,Fixed Assets,Land,No
+Long-term office equipment,Fixed Assets,Other fixed assets,No
+POS - Asset,Fixed Assets,Fixed Asset Computers,No
+Purchase 6 Dennys,Fixed Assets,Intangible Assets,No
+Restaurant Equipment,Fixed Assets,Machinery & Equipment,No
+tab purchase,Fixed Assets,Fixed Asset Computers,No
+"Tools, machinery, and equipment",Fixed Assets,Machinery & Equipment,No
+Vehicles,Fixed Assets,Vehicles,No
+Deferred income taxes,Other Assets,Deferred tax,No
+Goodwill,Other Assets,Goodwill,No
+Lease buyout,Other Assets,Lease Buyout,No
+Licenses held,Other Assets,Licenses,No
+Long-term investments,Other Assets,Long-term investments,No
+Long-term loans to related parties,Other Assets,Long Term Loans and Advances to Related Parties,No
+"Patents, copyrights, & franchises",Other Assets,Intangible Assets,No
+Security deposits,Other Assets,Security Deposits,No
+Startup & organizational costs,Other Assets,Organizational Costs,No
+Accounts Payable (A/P),Accounts payable (A/P),Accounts Payable (A/P),No
+Comcast Business,Accounts payable (A/P),Accounts Payable (A/P),No
+Amex-1200 Ganesh,Credit Card,Credit Card,No
+Ganesh (Freedom #5169),Credit Card,Credit Card,No
+Ganesh (lowes credit card  #8430),Credit Card,Credit Card,No
+Ganesh Amex card#12000,Credit Card,Credit Card,No
+Accrued Accounts Payable,Other Current Liabilities,Other Current Liabilities,No
+AHL-Chase 0970,Other Current Liabilities,Other Current Liabilities,No
+Allstate CPA - Payroll,Other Current Liabilities,Other Current Liabilities,No
+ANNAMALAI SARANATH - Reim,Other Current Liabilities,Other Current Liabilities,No
+Antony reim Ac,Other Current Liabilities,Other Current Liabilities,No
+Child Support - Payable,Other Current Liabilities,Other Current Liabilities,No
+Comcast,Other Current Liabilities,Other Current Liabilities,No
+Credit Card Payable,Other Current Liabilities,Other Current Liabilities,No
+Customer prepayments,Other Current Liabilities,Other Current Liabilities,No
+Deferred Revenue,Other Current Liabilities,Deferred Revenue,No
+Denny's  Inc,Other Current Liabilities,Other Current Liabilities,No
+Dennys Incentive,Other Current Liabilities,Other Current Liabilities,No
+Donation Received,Other Current Liabilities,Other Current Liabilities,No
+Employee Insurance - Payable,Other Current Liabilities,Other Current Liabilities,No
+Epro,Other Current Liabilities,Other Current Liabilities,No
+FCB- AC 0606 transfer-cancel,Other Current Liabilities,Other Current Liabilities,No
+FCB- Modern Mgmt 4668,Other Current Liabilities,Other Current Liabilities,No
+FCB-SAAG 5432,Other Current Liabilities,Other Current Liabilities,No
+Ganesh - Reimbursement A/c,Other Current Liabilities,Other Current Liabilities,No
+Gift Card Payable,Other Current Liabilities,Other Current Liabilities,No
+Henson Communication,Other Current Liabilities,Other Current Liabilities,No
+Kamal - Reimbursement Ac,Other Current Liabilities,Other Current Liabilities,No
+Marietta Restaurant -need to pay,Other Current Liabilities,Other Current Liabilities,No
+Modern Management,Other Current Liabilities,Other Current Liabilities,No
+modern mgmt 4020,Other Current Liabilities,Other Current Liabilities,No
+Payroll Payable,Other Current Liabilities,Other Current Liabilities,No
+Payroll Tax Payable,Other Current Liabilities,Payroll Tax Payable,No
+Payroll wages and tax to pay,Other Current Liabilities,Payroll Tax Payable,No
+Payroll wages and tax to pay:Retirement benefits to pay,Other Current Liabilities,Payroll Tax Payable,No
+Payroll wages and tax to pay:Wages to pay,Other Current Liabilities,Payroll Tax Payable,No
+Prasad - Reimbursement A/C,Other Current Liabilities,Other Current Liabilities,No
+property Tax Payable,Other Current Liabilities,Other Current Liabilities,No
+Rental Agreement,Other Current Liabilities,Other Current Liabilities,No
+Rental Agreement:2008 NM LLC - ET rent,Other Current Liabilities,Other Current Liabilities,No
+Rental Agreement:D&F Real Estate - YT,Other Current Liabilities,Other Current Liabilities,No
+Rental Agreement:Fillmore Propertity Group,Other Current Liabilities,Other Current Liabilities,No
+Rental Agreement:Whitson Properties - Findlay,Other Current Liabilities,Other Current Liabilities,No
+RRVA Solutions Inc,Other Current Liabilities,Other Current Liabilities,No
+Saag Technology Corporation,Other Current Liabilities,Other Current Liabilities,No
+Selvin - Reimbursement A/c,Other Current Liabilities,Other Current Liabilities,No
+Shanmugam Saravanan - Reim,Other Current Liabilities,Other Current Liabilities,No
+Short-term business loans,Other Current Liabilities,Loan Payable,No
+Short-term loans from shareholders,Other Current Liabilities,Loan Payable,No
+Subba - Reimbursement A/C,Other Current Liabilities,Other Current Liabilities,No
+Tax Collected - Sales tax 7.25%,Other Current Liabilities,Sales Tax Payable,No
+Tax Payable,Other Current Liabilities,Sales Tax Payable,No
+Tax Payable:Bed Tax,Other Current Liabilities,Sales Tax Payable,No
+Tax Payable:County Tax - (Bed Tax 6% ),Other Current Liabilities,Other Current Liabilities,No
+Tax Payable:Sales Tax Payable,Other Current Liabilities,Sales Tax Payable,No
+Tax Payable:Sales tax Payable - Marietta Hotel,Other Current Liabilities,Sales Tax Payable,No
+Tips Payable,Other Current Liabilities,Other Current Liabilities,No
+Utility Payable,Other Current Liabilities,Other Current Liabilities,No
+WOW AC,Other Current Liabilities,Other Current Liabilities,No
+Long-term business loans,Long Term Liabilities,Other Long Term Liabilities,No
+Long-term loans from shareholders,Long Term Liabilities,Debts related to participating interests,No
+Mortgage Loan - 1,Long Term Liabilities,Other Long Term Liabilities,No
+Mortgage Loan - 2,Long Term Liabilities,Other Long Term Liabilities,No
+Accumulated adjustment,Equity,Accumulated Adjustment,No
+Additional paid in capital,Equity,Paid-In Capital or Surplus,No
+Ajathullah Sirajudeen,Equity,Owner's Equity,No
+Amit Katta,Equity,Owner's Equity,No
+Annamalai Solayappan,Equity,Owner's Equity,No
+"ANNAMALAI, SARANATH",Equity,Owner's Equity,No
+"AYACHITAM, SHASHIDHAR",Equity,Owner's Equity,No
+Chandra Palusa,Equity,Owner's Equity,No
+Cincymarietta Llc,Equity,Owner's Equity,No
+Common stock,Equity,Common Stock,No
+"DALAL, SANTOSH S",Equity,Owner's Equity,No
+Equity - Ganesh Murugan,Equity,Partner's Equity,No
+Equity - Prasad,Equity,Owner's Equity,No
+Equity - Selvin,Equity,Partner's Equity,No
+Equity-Arman Bhatta,Equity,Owner's Equity,No
+Five Pillars LLC,Equity,Owner's Equity,No
+Ganesh - Capital,Equity,Owner's Equity,No
+HItesh Bhatt,Equity,Owner's Equity,No
+Jayanthi Sabapathy,Equity,Owner's Equity,No
+Jayaraman,Equity,Owner's Equity,No
+Kamal-Capital,Equity,Owner's Equity,No
+Kumar Rao,Equity,Owner's Equity,No
+Manohar Pathanjali,Equity,Owner's Equity,No
+Mohan Subbusamy,Equity,Owner's Equity,No
+"MUTHUKUMAR, VENKATESH",Equity,Owner's Equity,No
+Opening Balance Equity,Equity,Opening Balance Equity,No
+"PERIALWAR, KAMALAKKANNAN",Equity,Owner's Equity,No
+Prasad - Capital,Equity,Owner's Equity,No
+Rajesh - Equity,Equity,Owner's Equity,No
+Retained Earnings,Equity,Retained Earnings,No
+Saag Technology Corp,Equity,Owner's Equity,No
+Sanandaa Investments LLC,Equity,Owner's Equity,No
+Saravanti,Equity,Owner's Equity,No
+Selvin - Capital,Equity,Owner's Equity,No
+Shanmugam Saravanan,Equity,Owner's Equity,No
+Shareholders' equity,Equity,Owner's Equity,No
+Shareholders' equity:Contributions,Equity,Owner's Equity,No
+Shareholders' equity:Distributions,Equity,Owner's Equity,No
+Siva Raju,Equity,Owner's Equity,No
+Sreevari EXCEL,Equity,Owner's Equity,No
+Srinivas Cheruku,Equity,Owner's Equity,No
+Subba - Capital,Equity,Owner's Equity,No
+Subba Reddy,Equity,Owner's Equity,No
+Swamy Kavali,Equity,Owner's Equity,No
+Treasury stock,Equity,Treasury Stock,No
+"UVARAJ, KARTHIKEYAN",Equity,Owner's Equity,No
+"VANAMA, RAMBABU",Equity,Owner's Equity,No
+VIBCO Investments LLC,Equity,Owner's Equity,No
+Billable Expense Income,Income,Service/Fee Income,No
+Billable expense income-1,Income,Sales of Product Income,No
+Food Discount A/c,Income,Sales of Product Income,No
+Miscellaneous Income,Income,Non-Profit Income,No
+Other Food Sales,Income,Other Primary Income,No
+Other Income,Income,Sales of Product Income,No
+Refund A/c,Income,Discounts/Refunds Given,No
+Refunds & discounts to customers,Income,Discounts/Refunds Given,No
+Rental Income,Income,Other Primary Income,No
+Revenue - Exception,Income,Other Primary Income,No
+Room Revenue,Income,Service/Fee Income,No
+Room Revenue:Charge-Back,Income,Discounts/Refunds Given,No
+Room Revenue:Gross Room Revenue,Income,Service/Fee Income,No
+Room Revenue:Other Revenue,Income,Service/Fee Income,No
+Sales,Income,Sales of Product Income,No
+Sales A/C,Income,Sales of Product Income,No
+Sales of Product Income,Income,Sales of Product Income,No
+Services,Income,Service/Fee Income,No
+Services ( 5 ),Income,Service/Fee Income,No
+Travellers Check,Income,Service/Fee Income,No
+Uncategorized Income,Income,Service/Fee Income,No
+Glassware,Cost of Goods Sold,Cost of labor - COS,No
+Ingredient cost,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:BREAD & ROLLS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:BUTTER,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:CAKES & DESSERTS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:CATSUP,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:CHEESE,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:china,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:COFFEE,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:Condiments,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:Cost of labor - COGS,Cost of Goods Sold,Cost of labor - COS,No
+Ingredient cost:DAIRY,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:DESSERT OTHER INGRED,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:EARLY PAY DISCOUNT,Cost of Goods Sold,Other Costs of Services - COS,No
+Ingredient cost:EGGS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:Equipment rental - COGS,Cost of Goods Sold,Equipment Rental - COS,No
+Ingredient cost:FISH,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:Freight in - COGS,Cost of Goods Sold,"Shipping, Freight & Delivery - COS",No
+Ingredient cost:FRENCH FRIES,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:GRAVY/SAUCE,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:GROUND BEEF,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:HASH BROWNS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:Ice Cream,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:KIDS PROGRAM,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:MAPLE SYRUP,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:ORANGE JUICE,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:Other,Cost of Goods Sold,Cost of Goods Sold,No
+Ingredient cost:OTHER GROCERIES,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:OTHER MEATS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:PANCAKE MIX,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:PIES,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:PORK,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:POULTRY,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:prime rib,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:PRODUCE,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:Sliced Strawberries,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:SOFT DRINKS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:SOUPS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ingredient cost:STEAK,Cost of Goods Sold,Supplies & Materials - COGS,No
+Inventory Shrinkage,Cost of Goods Sold,Supplies & Materials - COGS,No
+Inventory Shrinkage-1,Cost of Goods Sold,Supplies & Materials - COGS,No
+Liquor - purchases,Cost of Goods Sold,Other Costs of Services - COS,No
+Non Ingredient - Goods,Cost of Goods Sold,Cost of labor - COS,No
+Non Ingredient - Goods:Chemical Purchases,Cost of Goods Sold,Supplies & Materials - COGS,No
+Non Ingredient - Goods:DETERGENTS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Non Ingredient - Goods:JANITORIAL GOODS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Non Ingredient - Goods:liquid,Cost of Goods Sold,Supplies & Materials - COGS,No
+Non Ingredient - Goods:oil,Cost of Goods Sold,Supplies & Materials - COGS,No
+Non Ingredient - Goods:OTHER REPLACEMENTS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Non Ingredient - Goods:PAPER PRODUCTS,Cost of Goods Sold,Supplies & Materials - COGS,No
+Non Ingredient - Goods:SILVERWARE,Cost of Goods Sold,Supplies & Materials - COGS,No
+Non Ingredient - Goods:SMALLWARES,Cost of Goods Sold,Supplies & Materials - COGS,No
+Ohio Lottery,Cost of Goods Sold,Other Costs of Services - COS,No
+Vegetables,Cost of Goods Sold,Cost of labor - COS,No
+Administrative Expenses,Expenses,Other Business Expenses,No
+Administrative Expenses:Accounting Charges,Expenses,Office/General Administrative Expenses,No
+Administrative Expenses:Bank charges,Expenses,Bank Charges,No
+Administrative Expenses:Continuing education,Expenses,Other Business Expenses,No
+Administrative Expenses:Donation,Expenses,Other Business Expenses,No
+Administrative Expenses:Dues and Subcription,Expenses,Communication,No
+Administrative Expenses:Fuel exp,Expenses,Auto,No
+Administrative Expenses:Meals & Entertainment,Expenses,Entertainment Meals,No
+Administrative Expenses:Memberships & subscriptions,Expenses,Dues & subscriptions,No
+Administrative Expenses:Office expenses,Expenses,Dues & subscriptions,No
+Administrative Expenses:Postage,Expenses,Other Business Expenses,No
+Administrative Expenses:Travelling Expenses,Expenses,Entertainment,No
+Administrative Expenses:Uniforms,Expenses,Other Business Expenses,No
+Advertising & marketing,Expenses,Advertising/Promotional,No
+Advertising Expenses,Expenses,Advertising/Promotional,No
+Bad debt expense,Expenses,Bad Debts,No
+Breakfast & Meal,Expenses,Supplies & Materials,No
+Cleaning goods exp,Expenses,Supplies & Materials,No
+Commissions & fees  *,Expenses,Advertising/Promotional,No
+Commissions & fees  *:Commission & Fee,Expenses,Advertising/Promotional,No
+Commissions & fees  *:Credit Card Fee,Expenses,Bank Charges,No
+Commissions & fees  *:Licence & Permit,Expenses,Legal & Professional Fees,No
+Commissions & fees  *:License & Taxes,Expenses,Taxes Paid,No
+Commissions & fees  *:OLO Fee,Expenses,Other Business Expenses,No
+Commissions & fees  *:Royalty - Door Dash Commission,Expenses,Other Business Expenses,No
+Communication exp,Expenses,Communication,No
+Contract labor,Expenses,Cost of Labor,No
+Contract Labour************,Expenses,Cost of Labor,No
+Contributions to charities,Expenses,Charitable Contributions,No
+Employee benefits,Expenses,Payroll Expenses,No
+Employee benefits:Employee retirement plans,Expenses,Payroll Expenses,No
+Equipment Expenses,Expenses,Other Business Expenses,No
+Equipment Lease,Expenses,Dues & subscriptions,No
+Food,Expenses,Entertainment Meals,No
+Food items - Training,Expenses,Other Business Expenses,No
+Food Protection and Safety,Expenses,Supplies & Materials,No
+Hiring Exp,Expenses,Advertising/Promotional,No
+Interest Paid,Expenses,Interest Paid,No
+Legal & accounting services,Expenses,Legal & Professional Fees,No
+Legal charges,Expenses,Legal & Professional Fees,No
+Marketing & Franchise Fees,Expenses,Other Business Expenses,Yes
+Marketing & Franchise Fees:BBF Investment Addtl,Expenses,Other Business Expenses,No
+Marketing & Franchise Fees:Franchise Royalties,Expenses,Other Business Expenses,No
+Marketing & Franchise Fees:Marketing Fee,Expenses,Legal & Professional Fees,No
+Marketing & Franchise Fees:Marketing Fees,Expenses,Advertising/Promotional,No
+Marketing & Franchise Fees:Royalties Fee - Door dash,Expenses,Other Business Expenses,No
+Marketing & Franchise Fees:Royalty Fee,Expenses,Legal & Professional Fees,No
+Marketing & Franchise Fees:Sales & Marketing Fee,Expenses,Legal & Professional Fees,No
+Marketing & Franchise Fees:Technology Fee,Expenses,Utilities,No
+Marketing & Franchise Fees:Training Services,Expenses,Legal & Professional Fees,No
+Meals,Expenses,Travel Meals,No
+Meeting exp,Expenses,Other Business Expenses,No
+Mgmt Commission,Expenses,Other Business Expenses,No
+Mics-Expenses (cash out receipt  not  recd),Expenses,Repair & Maintenance,No
+Occupancy,Expenses,Rent or Lease of Buildings,No
+Occupancy:Insurance,Expenses,Insurance,No
+Occupancy:Marketing Expenses - Local store,Expenses,Other Business Expenses,No
+Occupancy:Mortgage Loan (Small) - interest,Expenses,Interest Paid,No
+Occupancy:Mortgage Loan - Interest,Expenses,Interest Paid,No
+Occupancy:Property taxes,Expenses,Taxes Paid,No
+Occupancy:Rent,Expenses,Office/General Administrative Expenses,No
+Occupancy:Rent (CAM),Expenses,Other Business Expenses,No
+Occupancy:Rent Expenses,Expenses,Rent or Lease of Buildings,No
+Occupancy:Rent-1,Expenses,Rent or Lease of Buildings,No
+Occupancy:Rent-1:Equipment rental,Expenses,Equipment Rental,No
+Office expenses-1*************,Expenses,Office/General Administrative Expenses,No
+Office expenses-1*************:Merchant account fees,Expenses,Office/General Administrative Expenses,No
+Office expenses-1*************:Printing & photocopying,Expenses,Office/General Administrative Expenses,No
+Office expenses-1*************:Shipping & postage,Expenses,"Shipping, Freight & Delivery",No
+Office expenses-1*************:Software & apps,Expenses,Office/General Administrative Expenses,No
+Operating Expenses,Expenses,Other Business Expenses,No
+Operating Expenses:Building Repair & Maintanance Work,Expenses,Repair & Maintenance,No
+Operating Expenses:Repair and Maintanance,Expenses,Repair & Maintenance,No
+Payroll,Expenses,Payroll Expenses,No
+Payroll:Payroll expenses,Expenses,Payroll Expenses,No
+Payroll:Payroll expenses:Officers' salaries,Expenses,Payroll Wage Expenses,No
+Payroll:Salaries & wages,Expenses,Payroll Wage Expenses,No
+Payroll:Salaries & wages:Bartender,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:Cook & Prep Cook,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:Host / Hostess,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:Hourly Managers,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:Manager's,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:Salary- Bille,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:SalaryManagers,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:Server,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:Service Assistant,Expenses,Payroll Expenses,No
+Payroll:Salaries & wages:Training,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax,Expenses,Payroll Expenses,Yes
+Payroll:Salaries & Wages-payroll tax:Housekeeping,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Asst. General Manager,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Bistro Attendant,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Front Desk,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - General Manager,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Housekeeping,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Laundry,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Maintenance,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Night Audit,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Processing,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll - Taxes and Benefits,Expenses,Payroll Expenses,No
+Payroll:Salaries & Wages-payroll tax:Payroll tax - Employer,Expenses,Payroll Tax Expenses,No
+Purchases,Expenses,Supplies & Materials,No
+Restaurant Supplies,Expenses,Supplies & Materials,No
+Service Fee,Expenses,Other Business Expenses,No
+Subscription fee - OLO and others,Expenses,Other Business Expenses,No
+Supplies,Expenses,Supplies & Materials,No
+Supplies:Supplies & materials,Expenses,Supplies & Materials,No
+Taxes paid,Expenses,Taxes Paid,No
+Training Expenses,Expenses,Other Business Expenses,No
+Travel,Expenses,Travel,No
+Travel:Airfare,Expenses,Travel,No
+Travel:Hotels,Expenses,Travel,No
+Travel:Taxis or shared rides,Expenses,Travel,No
+Traveling Expenses***************,Expenses,Dues & subscriptions,No
+Unapplied Cash Bill Payment Expense,Expenses,Unapplied Cash Bill Payment Expense,No
+Uncategorized Expense,Expenses,Other Miscellaneous Service Cost,No
+Uniform Expenses,Expenses,Cost of Labor,No
+Utilities  *,Expenses,Office/General Administrative Expenses,No
+Utilities  *:Disposal & waste fees,Expenses,Utilities,No
+Utilities  *:Electricity,Expenses,Utilities,No
+Utilities  *:Internet & Telephone,Expenses,Utilities,No
+Utilities  *:Internet.Telephone & T.V. Services,Expenses,Utilities,No
+Utilities  *:Utilities,Expenses,Utilities,No
+Utilities  *:Utilities:Gas - Enbridge,Expenses,Utilities,No
+Utilities  *:Utilities:Internet & TV services,Expenses,Utilities,No
+Utilities  *:Utilities:Phone service,Expenses,Utilities,No
+Utilities  *:Water & sewer,Expenses,Utilities,No
+Credit card rewards,Other Income,Other Miscellaneous Income,No
+Franchise Incentives,Other Income,Other Miscellaneous Income,No
+Incentive Income from Dennys,Other Income,Other Miscellaneous Income,No
+Interest earned,Other Income,Other Miscellaneous Income,No
+Sales tax Discount recd,Other Income,Other Miscellaneous Income,No
+Ask for Accountant,Other Expense,Home Office,No
+Cash Shortage,Other Expense,Other Miscellaneous Expense,No
+Reconciliation Discrepancies,Other Expense,Other Miscellaneous Expense,No
+Vehicle expenses,Other Expense,Other Vehicle Expenses,No

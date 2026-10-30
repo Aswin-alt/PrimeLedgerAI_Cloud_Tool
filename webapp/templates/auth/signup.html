@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Sign up — {{ app_name }}{% endblock %}
+{% block public %}
+<div class="login-shell">
+
+  <!-- Left panel -->
+  <div class="login-left">
+    <div style="display:flex;align-items:center;gap:12px;position:relative;z-index:1;">
+      <div style="width:40px;height:40px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        <img src="/static/img/primeledger-logo.png" alt="" style="width:34px;height:34px;object-fit:contain;" />
+      </div>
+      <div style="color:#fff;font-weight:700;letter-spacing:-.02em;font-size:16px;">PrimeLedgerAI</div>
+    </div>
+    <div style="position:relative;z-index:1;color:#fff;max-width:420px;">
+      <div style="font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.2;text-wrap:balance;">Turn daily reports into clean QuickBooks journals.</div>
+      <p style="margin-top:14px;color:rgba(255,255,255,.72);font-size:14px;line-height:1.6;">Denny's &amp; Marietta Hotel conversions, approvals, and audit trail in one secure workspace.</p>
+    </div>
+    <div style="position:relative;z-index:1;color:rgba(255,255,255,.5);font-size:12px;">© PrimeLedgerAI · Secure session</div>
+  </div>
+
+  <!-- Right panel -->
+  <div class="login-right">
+    <button type="button" class="btn-theme login-theme-toggle" title="Toggle light / dark"
+            onclick="PLATheme.toggle(); this.textContent = PLATheme.get() === 'dark' ? '☀' : '☾';">
+      <span id="signup-theme-icon">☾</span>
+    </button>
+
+    <div class="login-card">
+      <h1 style="font-size:22px;font-weight:700;letter-spacing:-.02em;margin:0 0 6px;color:var(--fg);">Create account</h1>
+      <p style="margin:0 0 24px;font-size:14px;color:var(--muted-fg);">New accounts start as Viewer. An Admin can change your role.</p>
+
+      {% if error %}
+      <div class="flash-err rounded-lg px-3 py-2 text-sm mb-4">{{ error }}</div>
+      {% endif %}
+
+      <form method="post" action="/signup">
+        <label style="display:block;font-size:13px;font-weight:500;margin-bottom:6px;color:var(--fg);">Username</label>
+        <input name="username" class="input" required autofocus autocomplete="username" minlength="3"
+               value="{{ form.username if form else '' }}" style="margin-bottom:14px;" />
+
+        <label style="display:block;font-size:13px;font-weight:500;margin-bottom:6px;color:var(--fg);">Email</label>
+        <input type="email" name="email" class="input" required autocomplete="email"
+               value="{{ form.email if form else '' }}" style="margin-bottom:14px;" />
+
+        <label style="display:block;font-size:13px;font-weight:500;margin-bottom:6px;color:var(--fg);">Password</label>
+        <input type="password" name="password" class="input" required minlength="8"
+               autocomplete="new-password" style="margin-bottom:14px;" />
+
+        <label style="display:block;font-size:13px;font-weight:500;margin-bottom:6px;color:var(--fg);">Confirm password</label>
+        <input type="password" name="confirm_password" class="input" required minlength="8"
+               autocomplete="new-password" style="margin-bottom:20px;" />
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">Sign up</button>
+      </form>
+
+      <p style="text-align:center;font-size:13px;color:var(--muted-fg);margin-top:20px;">
+        Already have an account?
+        <a href="/login" style="color:var(--gold);font-weight:600;">Sign in</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var icon = document.getElementById('signup-theme-icon');
+    function sync() { if (icon) icon.textContent = PLATheme.get() === 'dark' ? '☀' : '☾'; }
+    window.addEventListener('pla-theme', sync);
+    sync();
+  })();
+</script>
+{% endblock %}

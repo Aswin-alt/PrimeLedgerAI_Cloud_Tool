@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block title %}{{ target.username }} — Users{% endblock %}
+{% block page_title %}User: {{ target.username }}{% endblock %}
+{% block page_subtitle %}Change role anytime · temporary &amp; permanent permission grants{% endblock %}
+{% block content %}
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px;">
+
+  <!-- Profile -->
+  <div class="card">
+    <h2 style="font-size:14px;font-weight:600;margin:0 0 14px;color:var(--fg);">Profile</h2>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;">
+      <div><span style="color:var(--muted-fg);">Email</span><div style="color:var(--fg);margin-top:2px;">{{ target.email }}</div></div>
+      <div><span style="color:var(--muted-fg);">Status</span><div style="margin-top:2px;">
+        <span style="font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:{% if target.is_active %}var(--success){% else %}var(--muted-fg){% endif %};">
+          <span style="width:7px;height:7px;border-radius:50%;background:{% if target.is_active %}var(--success){% else %}var(--muted-fg){% endif %};"></span>
+          {{ 'Active' if target.is_active else 'Inactive' }}
+        </span>
+      </div></div>
+      <div><span style="color:var(--muted-fg);">Current role</span><div style="margin-top:2px;"><span class="role-badge">{{ target.role.name }}</span></div></div>
+    </div>
+    <form method="post" action="/users/{{ target.id }}/toggle-active" style="margin-top:16px;">
+      <button class="btn btn-secondary" type="submit" style="width:100%;">{{ 'Deactivate' if target.is_active else 'Activate' }}</button>
+    </form>
+  </div>
+
+  <!-- Change role -->
+  <div class="card">
+    <h2 style="font-size:14px;font-weight:600;margin:0 0 4px;color:var(--fg);">Change role</h2>
+    <p style="font-size:12px;color:var(--muted-fg);margin:0 0 14px;">Reassign anytime. Takes effect on the next request.</p>
+    <form method="post" action="/users/{{ target.id }}/role">
+      <select name="role_id" class="input" style="margin-bottom:12px;">
+        {% for r in roles %}
+        <option value="{{ r.id }}" {% if target.role_id == r.id %}selected{% endif %}>{{ r.name }}</option>
+        {% endfor %}
+      </select>
+      <button class="btn btn-primary" type="submit" style="width:100%;">Save role</button>
+    </form>
+  </div>
+
+  <!-- Reset password -->
+  <div class="card">
+    <h2 style="font-size:14px;font-weight:600;margin:0 0 14px;color:var(--fg);">Reset password</h2>
+    <form method="post" action="/users/{{ target.id }}/password">
+      <input type="password" name="password" class="input" placeholder="New password" required style="margin-bottom:12px;" />
+      <button class="btn btn-secondary" type="submit" style="width:100%;">Update password</button>
+    </form>
+  </div>
+
+</div>
+
+<!-- Permission override -->
+<div class="card" style="margin-bottom:16px;">
+  <h2 style="font-size:14px;font-weight:600;margin:0 0 4px;color:var(--fg);">Temporary / permanent permission override</h2>
+  <p style="font-size:12px;color:var(--muted-fg);margin:0 0 16px;">Overrides beat the role. Leave dates empty for open-ended.</p>
+  <form method="post" action="/users/{{ target.id }}/overrides" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr auto;gap:12px;align-items:end;">
+    <div>
+      <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Permission</label>
+      <select name="permission_id" class="input">
+        {% for p in permissions %}
+        <option value="{{ p.id }}">{{ p.category }} · {{ p.code }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div>
+      <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Effect</label>
+      <select name="allowed" class="input"><option value="grant">Grant</option><option value="deny">Deny</option></select>
+    </div>
+    <div>
+      <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Starts</label>
+      <input type="datetime-local" name="starts_at" class="input" />
+    </div>
+    <div>
+      <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Expires</label>
+      <input type="datetime-local" name="expires_at" class="input" />
+    </div>
+    <div>
+      <label style="font-size:12px;color:var(--muted-fg);display:block;margin-bottom:5px;">Reason</label>
+      <input name="reason" class="input" placeholder="Covering leave…" />
+    </div>
+    <button class="btn btn-primary" type="submit">Add grant</button>
+  </form>
+</div>
+
+<!-- Active overrides -->
+<div class="card" style="padding:0;overflow:hidden;margin-bottom:16px;">
+  <div style="padding:16px 20px;border-bottom:1px solid var(--border);">
+    <h2 style="font-size:14px;font-weight:600;margin:0;color:var(--fg);">Active &amp; expired overrides</h2>
+  </div>
+  <div class="table-wrap">
+    <table class="data">
+      <thead><tr><th style="padding-left:20px;">Permission</th><th>Effect</th><th>Window</th><th>Reason</th><th>Status</th><th></th></tr></thead>
+      <tbody>
+        {% for ov in overrides %}
+        {% set expired = ov.expires_at and ov.expires_at <= now %}
+        {% set future = ov.starts_at and ov.starts_at > now %}
+        <tr style="{% if expired %}opacity:.5;{% endif %}">
+          <td style="padding-left:20px;font-weight:500;color:var(--fg);">{{ ov.permission.code }}</td>
+          <td>{{ 'Grant' if ov.allowed else 'Deny' }}</td>
+          <td style="font-size:12px;color:var(--muted-fg);">
+            {{ ov.starts_at or '—' }} → {% if ov.expires_at %}{{ ov.expires_at }}{% else %}open-ended{% endif %}
+          </td>
+          <td style="font-size:12px;color:var(--muted-fg);">{{ ov.reason }}</td>
+          <td>
+            {% if expired %}<span class="status-badge status-On\ Hold">Expired</span>
+            {% elif future %}<span class="status-badge status-Received">Scheduled</span>
+            {% else %}<span class="status-badge status-In\ Progress">Active</span>
+            {% endif %}
+          </td>
+          <td>
+            <form method="post" action="/users/{{ target.id }}/overrides/{{ ov.id }}/delete">
+              <button type="submit" style="font-size:12px;color:var(--danger);background:none;border:none;cursor:pointer;">Remove</button>
+            </form>
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6" style="padding-left:20px;color:var(--muted-fg);padding:1rem 20px;">No overrides.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Effective permissions -->
+<div class="card" style="padding:0;overflow:hidden;">
+  <div style="padding:16px 20px;border-bottom:1px solid var(--border);">
+    <h2 style="font-size:14px;font-weight:600;margin:0;color:var(--fg);">Effective permissions</h2>
+  </div>
+  <div class="table-wrap">
+    <table class="data">
+      <thead><tr><th style="padding-left:20px;">Category</th><th>Permission</th><th>Inherited</th><th>Override</th><th>Effective</th></tr></thead>
+      <tbody>
+        {% for row in perm_rows %}
+        <tr>
+          <td style="padding-left:20px;font-size:12px;color:var(--muted-fg);">{{ row.permission.category }}</td>
+          <td>
+            <div style="font-weight:500;font-size:13px;color:var(--fg);">{{ row.permission.code }}</div>
+            <div style="font-size:11px;color:var(--muted-fg);">{{ row.permission.name }}</div>
+          </td>
+          <td style="color:var(--muted-fg);">{{ 'Yes' if row.inherited else 'No' }}</td>
+          <td>
+            {% if row.status in ['Granted','Denied'] %}
+            <span class="status-badge {% if row.status=='Granted' %}status-Completed{% else %}status-Needs\ Review{% endif %}">
+              {{ row.status }}{% if row.temporary %} · temp{% endif %}
+            </span>
+            {% else %}—{% endif %}
+          </td>
+          <td>
+            {% if row.effective %}
+            <span style="color:var(--success);font-weight:600;font-size:13px;">Yes</span>
+            {% else %}
+            <span style="color:var(--muted-fg);">No</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

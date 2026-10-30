@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Users — {{ app_name }}{% endblock %}
+{% block page_title %}User management{% endblock %}
+{% block page_subtitle %}Create users and manage roles or grants{% endblock %}
+{% block content %}
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;">
+
+  <!-- Users table -->
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>User</th><th>Role</th><th>Status</th><th>Last login</th><th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for u in users %}
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:30px;height:30px;border-radius:50%;background:var(--muted);color:var(--fg);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{{ u.username[0].upper() }}</div>
+                <div>
+                  <div style="font-weight:600;color:var(--fg);">{{ u.username }}</div>
+                  <div style="font-size:11.5px;color:var(--muted-fg);">{{ u.email }}</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge">{{ u.role.name }}</span></td>
+            <td>
+              <span style="font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:{% if u.is_active %}var(--success){% else %}var(--muted-fg){% endif %};">
+                <span style="width:7px;height:7px;border-radius:50%;background:{% if u.is_active %}var(--success){% else %}var(--muted-fg){% endif %};"></span>
+                {{ 'Active' if u.is_active else 'Inactive' }}
+              </span>
+            </td>
+            <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ u.last_login or '—' }}</td>
+            <td><a href="/users/{{ u.id }}" style="font-size:12.5px;color:var(--gold);font-weight:500;">Manage</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Create user -->
+  <div class="card" style="align-self:start;">
+    <h2 style="font-size:14px;font-weight:600;margin:0 0 14px;color:var(--fg);">Create user</h2>
+    <form method="post" action="/users/create">
+      <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Username</label>
+      <input name="username" class="input" required style="margin-bottom:12px;" />
+      <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Email</label>
+      <input type="email" name="email" class="input" required style="margin-bottom:12px;" />
+      <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Password</label>
+      <input type="password" name="password" class="input" required style="margin-bottom:12px;" />
+      <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Role</label>
+      <select name="role_id" class="input" style="margin-bottom:16px;">
+        {% for r in roles %}<option value="{{ r.id }}">{{ r.name }}</option>{% endfor %}
+      </select>
+      <button class="btn btn-primary" type="submit" style="width:100%;">Create user</button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

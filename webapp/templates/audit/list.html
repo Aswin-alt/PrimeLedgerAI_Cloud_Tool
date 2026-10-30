@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Audit Log — {{ app_name }}{% endblock %}
+{% block page_title %}Audit Log{% endblock %}
+{% block page_subtitle %}Every login, upload, convert, and permission change{% endblock %}
+{% block content %}
+
+<!-- Filters -->
+<div class="card" style="padding:14px;margin-bottom:16px;">
+  <form method="get" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+    <input name="action" class="input" list="actions" value="{{ filters.action }}" placeholder="Action…" style="flex:1;min-width:140px;" />
+    <datalist id="actions">{% for a in actions %}<option value="{{ a }}"></option>{% endfor %}</datalist>
+    {% if users %}
+    <select name="user_id" class="input" style="width:auto;">
+      <option value="">All users</option>
+      {% for u in users %}<option value="{{ u.id }}" {% if filters.user_id == u.id|string %}selected{% endif %}>{{ u.username }}</option>{% endfor %}
+    </select>
+    {% endif %}
+    <input type="date" name="date_from" class="input" value="{{ filters.date_from }}" style="width:auto;" />
+    <input type="date" name="date_to" class="input" value="{{ filters.date_to }}" style="width:auto;" />
+    <button class="btn btn-secondary" type="submit">Filter</button>
+    {% if can('audit.export') %}
+    <a href="/audit/export" class="btn btn-primary">Export</a>
+    {% endif %}
+  </form>
+</div>
+
+<!-- Table -->
+<div class="card" style="padding:0;overflow:hidden;">
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr><th>When</th><th>User</th><th>Action</th><th>Entity</th><th>Detail</th><th>IP</th></tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td style="white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted-fg);">{{ r.created_at }}</td>
+          <td style="font-weight:500;">{{ r.user.username if r.user else 'system' }}</td>
+          <td><span style="font-size:11px;font-weight:600;background:var(--muted);color:var(--fg);border-radius:6px;padding:2px 8px;">{{ r.action }}</span></td>
+          <td style="color:var(--muted-fg);font-size:12px;">{{ r.entity_type }} {% if r.entity_id %}#{{ r.entity_id }}{% endif %}</td>
+          <td style="color:var(--muted-fg);font-size:12px;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="{{ r.detail }}">{{ r.detail }}</td>
+          <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ r.ip_address }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6" style="text-align:center;color:var(--muted-fg);padding:2rem;">No activity.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted-fg);">
+    <span>{{ filters.total }} events</span>
+    <div style="display:flex;gap:6px;align-items:center;">
+      {% if filters.page > 1 %}<a class="btn btn-secondary" style="height:30px;padding:0 11px;font-size:12.5px;" href="?page={{ filters.page-1 }}&action={{ filters.action }}&entity_type={{ filters.entity_type }}&user_id={{ filters.user_id }}&date_from={{ filters.date_from }}&date_to={{ filters.date_to }}">Prev</a>{% endif %}
+      <span>Page {{ filters.page }} / {{ filters.pages }}</span>
+      {% if filters.page < filters.pages %}<a class="btn btn-secondary" style="height:30px;padding:0 11px;font-size:12.5px;" href="?page={{ filters.page+1 }}&action={{ filters.action }}&entity_type={{ filters.entity_type }}&user_id={{ filters.user_id }}&date_from={{ filters.date_from }}&date_to={{ filters.date_to }}">Next</a>{% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Denny's Invoice — {{ app_name }}{% endblock %}
+{% block page_title %}Converters{% endblock %}
+{% block page_subtitle %}Turn source files into QuickBooks journals{% endblock %}
+{% block content %}
+
+<!-- Converter tabs -->
+{% set conv_list = [
+  ('daily_sales', 'Daily Sales'),
+  ('daily_remittance', 'Daily Remittance'),
+  ('payroll', 'Payroll'),
+  ('payroll_isolve', 'Payroll-Isolve'),
+  ('mclane_invoice', 'McLane Invoice'),
+  ('invoice', "Denny's Invoice"),
+  ('hotel_revenue', 'Hotel Revenue'),
+  ('sales_tax', 'Sales Tax'),
+] %}
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
+  {% for key, name in conv_list %}
+  <a href="{% if key == 'invoice' %}/converters/invoice{% else %}/converters/{{ key }}{% endif %}"
+     style="height:34px;padding:0 14px;border-radius:999px;font-size:12.5px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;border:1px solid {% if key == 'invoice' %}var(--gold){% else %}var(--border){% endif %};background:{% if key == 'invoice' %}color-mix(in srgb,var(--gold) 16%,transparent){% else %}var(--card){% endif %};color:{% if key == 'invoice' %}var(--gold){% else %}var(--fg){% endif %};">{{ name }}</a>
+  {% endfor %}
+</div>
+
+<div class="card" style="margin-bottom:16px;">
+  <h2 style="font-size:15px;font-weight:600;margin:0 0 14px;color:var(--fg);">Weekly Denny's Invoice</h2>
+  <form method="post" action="/converters/invoice/parse" enctype="multipart/form-data" style="display:flex;flex-wrap:wrap;gap:12px;align-items:end;">
+    <div style="flex:1;min-width:240px;">
+      <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Invoice PDF(s)</label>
+      <input type="file" name="files" accept=".pdf" multiple required class="input" style="height:auto;padding:6px;" />
+    </div>
+    <button class="btn btn-primary" type="submit">1. Parse PDFs</button>
+  </form>
+</div>
+
+{% if invoice_rows %}
+<form method="post" action="/converters/invoice/export">
+  <div class="card" style="padding:0;overflow:hidden;margin-bottom:16px;">
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Use</th><th>File</th><th>Restaurant</th><th>Location</th>
+            <th>Invoice</th><th>Description</th><th style="text-align:right;">Amount</th><th>Account</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in invoice_rows %}
+          <tr>
+            <td><input type="checkbox" name="sel_{{ r.idx }}" {% if r.selected %}checked{% endif %} style="accent-color:var(--gold);" /></td>
+            <td style="font-size:12px;color:var(--muted-fg);">{{ r.file }}</td>
+            <td style="color:var(--fg);">{{ r.restaurant }}</td>
+            <td style="{% if not r.location %}color:var(--danger);{% else %}color:var(--muted-fg);{% endif %}">{{ r.location or 'NOT MAPPED' }}</td>
+            <td style="color:var(--muted-fg);">{{ r.invoice }}</td>
+            <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="{{ r.description }}">{{ r.description }}</td>
+            <td style="text-align:right;font-variant-numeric:tabular-nums;">{{ r.amount }}</td>
+            <td>
+              <input list="acctlist" name="acct_{{ r.idx }}" value="{{ r.account }}" class="input" style="height:30px;font-size:12px;" />
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <datalist id="acctlist">
+      {% for a in accounts %}<option value="{{ a }}"></option>{% endfor %}
+    </datalist>
+  </div>
+  <button class="btn btn-primary" type="submit">2. Export Balanced CSV Journal</button>
+</form>
+{% else %}
+<div class="card" style="text-align:center;padding:2rem;color:var(--muted-fg);">Upload one or more DFO invoice PDFs to begin.</div>
+{% endif %}
+{% endblock %}

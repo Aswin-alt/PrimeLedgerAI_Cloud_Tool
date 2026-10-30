@@ -1,0 +1,230 @@
+"Store","Name","Employee Number","Corporate Id","Job Code","Position","Pay Rate","Regular Hours","Overtime Hours","Double Overtime Hours","Holiday Hours","Regular Wages","Overtime Wages","Doubletime Wages","Holiday Wages","Total Wages","Charged Tips","Cash Tips","Total Tips"
+5164: Berkshire OH,ADKINS ALESHYA,10061,33,5     ,Server,$5.50,48.82,,,,$268.51,,,,$268.49,$577.33,$60.00,$637.33
+5164: Berkshire OH,albright braylend,4218653,,14    ,Cook Trainee,$15.00,22.58,,,,$338.70,,,,$338.75,,,
+5164: Berkshire OH,albright bryan,4218645,,4     ,Cook,$18.00,27.81,,,,$500.58,,,,$500.70,,,
+5164: Berkshire OH,carroll alexia,4218651,,5     ,Server,$5.50,15.81,,,,$86.95,,,,$86.99,$264.99,,$264.99
+5164: Berkshire OH,cheeseman Bailey,4218655,,25    ,Server Trainee,$11.00,3.97,,,,$43.67,,,,$43.63,,,
+5164: Berkshire OH,Hawksworth Austin,4218641,,4     ,Cook,$18.00,63.91,2.73,,,$1150.38,$73.80,,,$1224.30,,,
+5164: Berkshire OH,hiell alyssa,4218635,,4     ,Cook,$16.00,19.20,,,,$307.20,,,,$307.20,,,
+5164: Berkshire OH,hillier anna,4218638,,5     ,Server,$5.50,61.36,2.02,,,$337.48,$22.18,,,$359.70,$360.91,$55.00,$415.91
+5164: Berkshire OH,hillier anna,4218638,,5     ,Server,$7.33,,7.43,,,,$81.77,,,$81.77,,,
+5164: Berkshire OH,keen shelby,4218623,,5     ,Server,$5.50,32.01,,,,$176.06,,,,$176.09,$402.27,$6.00,$408.27
+5164: Berkshire OH,Lincoln Paul,4218476,5360,4     ,Cook,$16.00,33.16,,,,$530.56,,,,$530.67,,,
+5164: Berkshire OH,moore rodney,4218654,,14    ,Cook Trainee,$16.00,54.58,,,,$873.28,,,,$873.33,,,
+5164: Berkshire OH,moorman jennifer,4218637,,5     ,Server,$5.50,9.15,,,,$50.33,,,,$50.33,$78.84,$78.84,$157.68
+5164: Berkshire OH,Ramsey Tina,4218494,,5     ,Server,$5.50,35.09,,,,$193.00,,,,$192.96,$323.31,$15.63,$338.94
+5164: Berkshire OH,roberts elisha,4218609,,4     ,Cook,$17.00,12.62,,,,$214.54,,,,$214.48,,,
+5164: Berkshire OH,scholl kelly,4218603,,5     ,Server,$5.50,28.00,,,,$154.00,,,,$154.00,$264.76,$18.00,$282.76
+5164: Berkshire OH,seitz rodney,4218652,,14    ,Cook Trainee,$15.00,18.00,,,,$270.00,,,,$270.00,,,
+5164: Berkshire OH,Smith Brianna,4218650,,5     ,Server,$5.50,44.51,,,,$244.81,,,,$244.75,$314.01,$10.00,$324.01
+5164: Berkshire OH,smith chasity,4218639,,4     ,Cook,$17.00,18.72,,,,$318.24,,,,$318.18,,,
+5164: Berkshire OH,smith chasity,4218639,,5     ,Server,$5.50,4.55,,,,$25.02,,,,$25.02,$75.79,,$75.79
+5164: Berkshire OH,smith chasity,4218639,,22    ,Diamond Shift Superv,$7.00,7.83,,,,$54.81,,,,$54.83,,,
+5164: Berkshire OH,walker wilbert,4218643,,4     ,Cook,$16.00,10.50,,,,$168.00,,,,$168.00,,,
+5164: Berkshire OH,wolford chassidy,4218648,,5     ,Server,$5.50,7.70,,,,$42.35,,,,$42.35,,,
+5164: Berkshire OH,young janet,4218627,,5     ,Server,$5.50,28.88,,,,$158.84,,,,$158.86,$228.18,$119.44,$347.62
+5165: Perrysburg OH,Clark Sr. James,10641,,7     ,Service Assistant,$11.00,32.13,,,,$353.43,,,,$353.47,,,
+5165: Perrysburg OH,Clark Toni,10734,5165,5     ,Server,$5.50,55.30,,,,$304.15,,,,$304.15,$239.56,$15.00,$254.56
+5165: Perrysburg OH,Eckhoff Rebecca,10729,,5     ,Server,$6.50,61.65,2.73,,,$400.73,$32.80,,,$433.52,$223.55,,$223.55
+5165: Perrysburg OH,foreman Lashawnda,10633,,4     ,Cook,$15.00,18.46,,,,$276.90,,,,$276.75,,,
+5165: Perrysburg OH,Fowler Trinity,10691,,5     ,Server,$5.50,37.88,,,,$208.34,,,,$208.36,$306.77,$2.00,$308.77
+5165: Perrysburg OH,Harris Janette,10733,5165,5     ,Server,$5.50,30.79,,,,$169.34,,,,$169.31,$239.07,$12.00,$251.07
+5165: Perrysburg OH,Henzler Vickey,10197,9024,4     ,Cook,$14.50,48.49,0.87,,,$703.11,$18.85,,,$722.10,,,
+5165: Perrysburg OH,myers roben,10637,,4     ,Cook,$16.00,56.35,21.09,,,$901.60,$506.00,,,$1407.60,,,
+5165: Perrysburg OH,olejownik tracy,10737,,7     ,Service Assistant,$11.00,20.54,,,,$225.94,,,,$225.87,,,
+5165: Perrysburg OH,Otero Steven,10726,,4     ,Cook,$15.00,13.93,,,,$208.95,,,,$209.00,,,
+5165: Perrysburg OH,Papulias Haylee,10722,,5     ,Server,$5.50,29.07,,,,$159.88,,,,$159.87,$337.63,$135.00,$472.63
+5165: Perrysburg OH,Phillips Adrienne,10545,,4     ,Cook,$14.00,4.00,,,,$56.00,,,,$56.00,$37.07,,$37.07
+5165: Perrysburg OH,Phillips Adrienne,10545,,5     ,Server,$5.50,39.13,8.02,,,$215.22,$88.18,,,$303.42,$394.57,$8.00,$402.57
+5165: Perrysburg OH,Phillips Adrienne,10545,,5     ,Server,$14.00,4.32,,,,$60.48,,,,$57.74,$43.32,$6.00,$49.32
+5165: Perrysburg OH,Rapp-Gilchrist Taylor,10721,,5     ,Server,$5.50,57.99,6.40,,,$318.94,$70.40,,,$389.40,$388.44,$130.00,$518.44
+5165: Perrysburg OH,riebe ashley,10736,5165,4     ,Cook,$15.00,22.97,,,,$344.55,,,,$344.50,,,
+5165: Perrysburg OH,Saldivar Kiana,10738,,25    ,Server Trainee,$11.00,9.53,,,,$104.83,,,,$104.87,,,
+5165: Perrysburg OH,speigner willie,10576,,22    ,Diamond Shift Superv,$18.00,58.65,,,,$1055.70,,,,$1055.70,$20.00,,$20.00
+5165: Perrysburg OH,white angel,10720,,5     ,Server,$5.50,45.52,,,,$250.36,,,,$250.34,$270.16,$25.00,$295.16
+5165: Perrysburg OH,wyburn matt,10678,5165,4     ,Cook,$15.00,16.00,,,,$240.00,,,,$240.00,,,
+5166: Jeffersonville OH,Archer Jennifer,11159,5166,4     ,Cook,$15.00,48.42,,,,$726.30,,,,$726.25,,,
+5166: Jeffersonville OH,Blair Chelsea,11169,5166,5     ,Server,$5.50,24.78,,,,$136.29,,,,$136.31,$231.23,$15.00,$246.23
+5166: Jeffersonville OH,Brown Brooklyn,11144,,5     ,Server,$5.50,14.62,,,,$80.41,,,,$80.39,$194.29,,$194.29
+5166: Jeffersonville OH,Campbell Brittany,11161,5166,5     ,Server,$5.50,36.00,,,,$198.00,,,,$198.09,$319.80,$20.00,$339.80
+5166: Jeffersonville OH,Cowin Malachi,11170,5166,4     ,Cook,$15.00,36.32,8.78,,,$544.80,$197.63,,,$742.38,,,
+5166: Jeffersonville OH,Cox Allaxandria,11181,,5     ,Server,$5.50,36.61,,,,$201.35,,,,$201.39,$238.84,$66.07,$304.91
+5166: Jeffersonville OH,Curnutte Robert,11137,,7     ,Service Assistant,$12.00,31.08,,,,$372.96,,,,$373.00,,,
+5166: Jeffersonville OH,Drew Amber,11183,,5     ,Server,$5.50,7.07,,,,$38.88,,,,$38.87,$50.42,$40.00,$90.42
+5166: Jeffersonville OH,Dungan David,11125,5166,4     ,Cook,$12.00,25.36,,,,$304.32,,,,$304.20,,,
+5166: Jeffersonville OH,Garrett Kiley,11178,,5     ,Server,$5.50,4.05,,,,$22.27,,,,$22.27,$50.41,,$50.41
+5166: Jeffersonville OH,Garrett Kiley,11178,,25    ,Server Trainee,$11.00,4.03,,,,$44.33,,,,$44.37,,,
+5166: Jeffersonville OH,Green Tanner,11134,51668987,5     ,Server,$5.50,37.88,,,,$208.34,,,,$208.36,$413.21,$15.00,$428.21
+5166: Jeffersonville OH,Hopkins Anna-Marie,11133,51664892,5     ,Server,$5.50,10.58,,,,$58.19,,,,$58.21,$56.92,,$56.92
+5166: Jeffersonville OH,Humphrey Justin,11177,5166,4     ,Cook,$14.00,36.86,,,,$516.04,,,,$516.13,,,
+5166: Jeffersonville OH,Johnson Kiersten,11173,5166,5     ,Server,$5.50,15.83,,,,$87.06,,,,$87.08,$147.89,$35.00,$182.89
+5166: Jeffersonville OH,Miles Hannah,11172,5166,5     ,Server,$6.50,27.67,0.45,,,$179.85,$5.40,,,$185.23,$229.13,$157.20,$386.33
+5166: Jeffersonville OH,Perkins Joanna,11121,,3     ,Host/Hostess,$15.00,45.50,9.28,,,$682.50,$208.88,,,$891.38,$127.14,$57.00,$184.14
+5166: Jeffersonville OH,Perkins Joanna,11121,,65    ,Premium Server,$7.50,10.51,,,,$78.83,,,,$78.88,$49.28,$35.00,$84.28
+5166: Jeffersonville OH,Prindle Christopher,11182,,4     ,Cook,$14.00,47.43,,,,$664.02,,,,$663.83,,,
+5166: Jeffersonville OH,Queary Rylee,11116,,5     ,Server,$5.50,15.28,,,,$84.04,,,,$84.06,$115.20,,$115.20
+5166: Jeffersonville OH,Reesse Reagen,11174,5166,5     ,Server,$5.50,57.29,,,,$315.10,,,,$315.06,$538.37,$235.00,$773.37
+5166: Jeffersonville OH,Ross Kahne,11143,,3     ,Host/Hostess,$11.00,4.50,,,,$49.50,,,,$49.50,,,
+5166: Jeffersonville OH,Smith-Anderson Bryce,11058,,4     ,Cook,$14.00,15.31,,,,$214.34,,,,$214.43,,,
+5166: Jeffersonville OH,Smith-Anderson Bryce,11058,,4     ,Cook,$15.00,12.12,,,,$181.80,,,,$181.75,,,
+5167: Elizabethtown KY,Allison Joseph,106964,,4     ,Cook,$13.00,39.15,,,,$508.95,,,,$508.95,,,
+5167: Elizabethtown KY,Angel Miranda,106957,,5     ,Server,$2.13,35.55,2.67,,,$75.72,$15.35,,,$91.07,$352.68,$20.00,$372.68
+5167: Elizabethtown KY,booker ERIN,106937,,5     ,Server,$2.13,38.15,,,,$81.26,,,,$81.26,$158.37,$11.00,$169.37
+5167: Elizabethtown KY,Cashman IIII Ray,106978,,14    ,Cook Trainee,$13.00,6.12,,,,$79.56,,,,$79.52,,,
+5167: Elizabethtown KY,Collier Rayven,106975,,5     ,Server,$2.13,26.53,,,,$56.51,,,,$56.52,$40.76,$24.00,$64.76
+5167: Elizabethtown KY,Conley Lindsey,106943,,5     ,Server,$2.13,59.41,,,,$126.54,,,,$126.56,$357.18,$45.00,$402.18
+5167: Elizabethtown KY,Dupin Raymond,106947,,7     ,Service Assistant,$12.00,39.89,,,,$478.68,,,,$478.60,,,
+5167: Elizabethtown KY,Fabrizio Thomas,106784,,34    ,Full Time Cook,$14.50,57.31,5.18,,,$831.00,$112.73,,,$943.59,,,
+5167: Elizabethtown KY,Fredericks Skyla,106967,,5     ,Server,$2.13,42.43,,,,$90.38,,,,$90.38,$298.50,$233.00,$531.50
+5167: Elizabethtown KY,Harris Tamarah,106977,,5     ,Server,$2.13,14.10,,,,$30.03,,,,$30.03,$34.15,$45.00,$79.15
+5167: Elizabethtown KY,Harris Tamarah,106977,,64    ,Server-Min Wage,$2.13,0.05,,,,$0.11,,,,$0.11,,,
+5167: Elizabethtown KY,Hawkins Jesse,10100,2818,55    ,Diamond Shift Coord.,$18.00,4.44,,,,$79.92,,,,$79.80,,,
+5167: Elizabethtown KY,Hayse Arlene,106890,,5     ,Server,$2.13,24.02,,,,$51.16,,,,$51.16,$155.77,$57.00,$212.77
+5167: Elizabethtown KY,Hayse Arlene,106890,,5     ,Server,$3.84,,8.07,,,,$46.42,,,$46.42,$101.18,$10.00,$111.18
+5167: Elizabethtown KY,Hayse Arlene,106890,,64    ,Server-Min Wage,$5.00,21.40,0.70,,,$107.00,$6.03,,,$113.04,$181.49,$7.78,$189.27
+5167: Elizabethtown KY,Houliham James,106818,,7     ,Service Assistant,$9.25,35.23,,,,$325.88,,,,$325.75,,,
+5167: Elizabethtown KY,Isaac Michael,106974,,4     ,Cook,$13.00,9.77,,,,$127.01,,,,$126.97,,,
+5167: Elizabethtown KY,Isaac Michael,106974,,14    ,Cook Trainee,$13.00,13.70,,,,$178.10,,,,$178.10,,,
+5167: Elizabethtown KY,Jarrell Mark,106924,,4     ,Cook,$13.75,42.91,,,,$590.01,,,,$590.10,,,
+5167: Elizabethtown KY,Jester Steven,106970,,4     ,Cook,$13.00,5.12,,,,$66.56,,,,$66.52,,,
+5167: Elizabethtown KY,kennedy vivian,106938,,5     ,Server,$2.13,33.88,,,,$72.16,,,,$72.17,$65.19,$59.00,$124.19
+5167: Elizabethtown KY,LAMON ANTHONY,106933,,5     ,Server,$2.13,47.42,,,,$101.00,,,,$101.00,$193.85,$35.00,$228.85
+5167: Elizabethtown KY,Logsdon Michael,106976,,14    ,Cook Trainee,$13.00,32.19,,,,$418.47,,,,$418.38,,,
+5167: Elizabethtown KY,LOVE LOIS,45,3693,3     ,Host/Hostess,$11.00,17.64,,,,$194.04,,,,$193.97,,,
+5167: Elizabethtown KY,shepherd matthew,106928,,55    ,Diamond Shift Coord.,$15.50,50.00,5.88,,,$775.00,$136.79,,,$911.79,,,
+5167: Elizabethtown KY,Thompson Debra,10108,2546,5     ,Server,$2.13,52.51,,,,$111.85,,,,$111.86,$277.02,$145.00,$422.02
+5167: Elizabethtown KY,Vowels Thomas,106980,,14    ,Cook Trainee,$13.00,5.50,,,,$71.50,,,,$71.50,,,
+5167: Elizabethtown KY,WILLIAMS SONJA,2711,1412,5     ,Server,$2.95,62.77,4.70,,,$185.17,$30.90,,,$216.11,$616.18,$35.20,$651.38
+5167: Elizabethtown KY,Woods Reginald,106871,7085,4     ,Cook,$14.00,47.87,,,,$670.18,,,,$670.13,,,
+5168: Catlettsburg KY,Akers Rebecca,10467,7730,5     ,Server,$2.13,42.54,,,,$90.61,,,,$90.60,$275.39,$5.00,$280.39
+5168: Catlettsburg KY,Akers Rebecca,10467,7730,5     ,Server,$3.84,,5.60,,,,$32.23,,,$32.23,$57.93,$1.00,$58.93
+5168: Catlettsburg KY,Breitenstein Jonathon,10732,,5     ,Server,$2.13,37.16,4.22,,,$79.15,$24.27,,,$103.43,,,
+5168: Catlettsburg KY,Crabtree Courtney,10731,,4     ,Cook,$15.00,29.13,25.42,,,$436.95,$571.87,,,$1008.63,,,
+5168: Catlettsburg KY,Crabtree Courtney,10731,,5     ,Server,$2.13,18.15,0.53,,,$38.66,$3.07,,,$41.73,,,
+5168: Catlettsburg KY,Crabtree Courtney,10731,,5     ,Server,$3.84,,1.77,,,,$10.17,,,$10.17,$66.12,$1.00,$67.12
+5168: Catlettsburg KY,Gibbs Kelsie,10674,,5     ,Server,$2.13,18.56,,,,$39.53,,,,$39.55,,,
+5168: Catlettsburg KY,Gibbs Kelsie,10674,,65    ,Premium Server,$7.25,28.76,,,,$208.51,,,,$208.56,,,
+5168: Catlettsburg KY,Jenkins Peggy,10578,3733,5     ,Server,$2.13,56.73,12.10,,,$120.83,$69.63,,,$190.48,$596.53,,$596.53
+5168: Catlettsburg KY,Kirkland Jharel,10719,,4     ,Cook,$13.00,48.38,0.92,,,$628.94,$17.87,,,$646.86,,,
+5168: Catlettsburg KY,McCumbers Brittany,10733,,5     ,Server,$2.13,47.39,,,,$100.94,,,,$100.96,,,
+5168: Catlettsburg KY,Mckee Amanda,10690,,5     ,Server,$2.13,40.31,,,,$85.86,,,,$85.84,,$125.00,$125.00
+5168: Catlettsburg KY,Miller Crystal,10734,,4     ,Cook,$13.00,55.46,1.63,,,$720.98,$31.85,,,$752.92,,,
+5168: Catlettsburg KY,Reynolds Sydney,10736,,22    ,Diamond Shift Superv,$15.00,44.43,,,,$666.45,,,,$666.52,,,
+5168: Catlettsburg KY,Reynolds Sydney,10736,,22    ,Diamond Shift Superv,$15.50,8.25,,,,$127.88,,,,$127.88,,,
+5168: Catlettsburg KY,Sheldon Carl,10678,,4     ,Cook,$14.50,64.53,1.80,,,$935.68,$39.15,,,$974.88,,,
+5168: Catlettsburg KY,Sheldon Carl,10634,,4     ,Cook,$14.00,8.55,,,,$119.70,,,,$119.70,,,
+5168: Catlettsburg KY,Sheldon Carl,10634,,22    ,Diamond Shift Superv,$15.00,10.88,,,,$163.20,,,,$163.25,,,
+5168: Catlettsburg KY,Stephens Linda,10173,237,55    ,Diamond Shift Coord.,$15.00,6.47,,,,$97.05,,,,$97.00,,,
+5168: Catlettsburg KY,Thibodaux Baileigh,10717,,5     ,Server,$2.13,8.70,,,,$18.53,,,,$18.53,,,
+5168: Catlettsburg KY,White Adarius,10738,,7     ,Service Assistant,$9.00,13.94,,,,$125.46,,,,$125.40,,,
+5168: Catlettsburg KY,Wolfe Logan,10737,,14    ,Cook Trainee,$12.00,25.59,,,,$307.08,,,,$307.00,,,
+5169: Columbus OH,Brown Raymondo,10866,51692549,4     ,Cook,$16.00,35.97,,,,$575.52,,,,$575.47,,,
+5169: Columbus OH,Champelle-Hall Finesse,10885,51694783,5     ,Server,$5.50,0.02,,,,$0.11,,,,$0.09,,,
+5169: Columbus OH,Champelle-Hall Finesse,10885,51694783,25    ,Server Trainee,$11.00,16.87,,,,$185.57,,,,$185.53,,,
+5169: Columbus OH,Dillbeck Jr Edmond,10871,51695099,7     ,Service Assistant,$12.00,28.10,,,,$337.20,,,,$337.20,,,
+5169: Columbus OH,Edington Haley,10887,51694733,5     ,Server,$5.50,6.13,,,,$33.72,,,,$33.73,$30.80,$31.00,$61.80
+5169: Columbus OH,Edington Haley,10887,51694733,25    ,Server Trainee,$11.00,12.12,,,,$133.32,,,,$133.28,,,
+5169: Columbus OH,Farely Gracie,10843,,5     ,Server,$5.50,40.10,,,,$220.55,,,,$220.55,$283.85,$32.00,$315.85
+5169: Columbus OH,Fulwood Thoren,10880,51697053,4     ,Cook,$17.00,52.91,,,,$899.47,,,,$899.30,,,
+5169: Columbus OH,Gardner Shawn,10614,,5     ,Server,$5.50,31.40,,,,$172.70,,,,$172.70,$177.33,$12.00,$189.33
+5169: Columbus OH,green elizabeth,10819,,7     ,Service Assistant,$14.00,40.39,,,,$565.46,,,,$565.37,,,
+5169: Columbus OH,Harley Kenny,10888,51694252,4     ,Cook,$17.00,7.30,,,,$124.10,,,,$124.10,,,
+5169: Columbus OH,Harris Alysia,10788,,4     ,Cook,$18.00,16.53,,,,$297.54,,,,$297.30,,,
+5169: Columbus OH,Jeffcoat Kristina,10883,51691501,5     ,Server,$5.50,21.49,,,,$118.19,,,,$118.16,$103.36,,$103.36
+5169: Columbus OH,Jeffcoat Kristina,10883,51691501,25    ,Server Trainee,$11.00,12.03,,,,$132.33,,,,$132.37,,,
+5169: Columbus OH,Johnson Kuazmon,10163,6677,4     ,Cook,$19.00,32.90,,,,$625.10,,,,$624.78,,,
+5169: Columbus OH,Johnson Kuazmon,10163,6677,5     ,Server,$5.50,0.03,,,,$0.17,,,,$0.18,,,
+5169: Columbus OH,Leiner Madison,10868,51698745,5     ,Server,$5.50,30.34,,,,$166.87,,,,$166.83,$211.27,$75.00,$286.27
+5169: Columbus OH,Leiner Madison,10868,51698745,25    ,Server Trainee,$11.00,6.68,,,,$73.48,,,,$73.52,,,
+5169: Columbus OH,limoli jeanette,10852,,5     ,Server,$5.50,50.22,5.95,,,$276.21,$65.45,,,$341.64,$347.23,$9.00,$356.23
+5169: Columbus OH,Little Stacey,10574,51691476,3     ,Host/Hostess,$16.00,7.67,,,,$122.72,,,,$122.67,$15.60,,$15.60
+5169: Columbus OH,Little Stacey,10574,51691476,22    ,Diamond Shift Superv,$16.00,39.08,,,,$625.28,,,,$625.07,$13.66,,$13.66
+5169: Columbus OH,Maxwell Frank,10884,51694154,7     ,Service Assistant,$12.00,13.23,,,,$158.76,,,,$158.80,,,
+5169: Columbus OH,Mcdonald Sharon,10720,,5     ,Server,$5.50,30.65,,,,$168.57,,,,$168.57,$219.13,$26.00,$245.13
+5169: Columbus OH,Mcghee Lynn,10886,51691808,25    ,Server Trainee,$11.00,7.08,,,,$77.88,,,,$77.92,,,
+5169: Columbus OH,Mitchell Tenia,10881,,5     ,Server,$5.50,20.28,,,,$111.54,,,,$111.56,$158.69,$91.00,$249.69
+5169: Columbus OH,Mitchell Tenia,10881,,25    ,Server Trainee,$11.00,7.93,,,,$87.23,,,,$87.27,,,
+5169: Columbus OH,Petrossky Neilani,10814,,4     ,Cook,$15.00,50.27,3.30,,,$754.05,$74.25,,,$828.25,,,
+5169: Columbus OH,Roberts Denita,10889,,4     ,Cook,$17.00,18.79,,,,$319.43,,,,$319.60,,,
+5169: Columbus OH,Rogers Felisa,10882,51691686,5     ,Server,$5.50,12.17,,,,$66.94,,,,$66.92,$97.39,$23.00,$120.39
+5169: Columbus OH,Rogers Felisa,10882,51691686,25    ,Server Trainee,$11.00,19.73,,,,$217.03,,,,$217.07,,,
+5169: Columbus OH,Rogers-Whiting Tanasia,10890,51697860,25    ,Server Trainee,$11.00,3.98,,,,$43.78,,,,$43.82,,,
+5169: Columbus OH,Son Mealeah,10864,,5     ,Server,$5.50,54.68,,,,$300.74,,,,$300.85,$242.19,$33.00,$275.19
+5169: Columbus OH,Tamman Marwan,10787,,4     ,Cook,$16.00,56.80,4.06,,,$908.80,$97.60,,,$1006.40,,,
+5169: Columbus OH,Terry Kellie,10878,,5     ,Server,$5.50,60.64,1.88,,,$333.52,$20.72,,,$354.29,$347.37,,$347.37
+5169: Columbus OH,Terry Kellie,10878,,25    ,Server Trainee,$11.00,4.08,,,,$44.88,,,,$44.92,,,
+5169: Columbus OH,Ward Suzanne,10879,51690918,4     ,Cook,$18.00,61.71,6.00,,,$1110.78,$162.00,,,$1272.60,,,
+7401: Youngstown OH,Beck Sarah,25,,4     ,Cook,$15.00,37.30,,,,$559.50,,,,$559.75,,,
+7401: Youngstown OH,Brooks Heather,10100,,3     ,Host/Hostess,$11.00,5.76,,,,$63.36,,,,$63.43,$6.25,,$6.25
+7401: Youngstown OH,Brooks Heather,10100,,5     ,Server,$5.50,50.02,,,,$275.11,,,,$275.09,$320.03,$220.00,$540.03
+7401: Youngstown OH,Coles Aaron,21,,7     ,Service Assistant,$13.00,21.40,,,,$278.20,,,,$278.20,,,
+7401: Youngstown OH,Cozad Malia,22,,5     ,Server,$5.50,14.10,,,,$77.55,,,,$77.55,$102.71,$25.50,$128.21
+7401: Youngstown OH,Davis James,30,,7     ,Service Assistant,$13.50,37.17,,,,$501.80,,,,$501.75,,,
+7401: Youngstown OH,Fuller Jasmyn,13,40,5     ,Server,$5.50,12.81,,,,$70.45,,,,$70.49,$73.59,,$73.59
+7401: Youngstown OH,Galla Ellen,10000,,4     ,Cook,$16.00,15.51,,,,$248.16,,,,$248.00,,,
+7401: Youngstown OH,Heriot Allena,1,,5     ,Server,$5.50,21.60,,,,$118.80,,,,$118.80,$249.08,$136.00,$385.08
+7401: Youngstown OH,Lopez Michael,18,,4     ,Cook,$14.00,36.90,,,,$516.60,,,,$516.60,,,
+7401: Youngstown OH,Maxey Lorenzo,29,,4     ,Cook,$17.00,49.90,,,,$848.30,,,,$848.30,,,
+7401: Youngstown OH,McClimans David,10170,,22    ,Diamond Shift Superv,$18.00,38.82,,,,$698.76,,,,$699.00,,,
+7401: Youngstown OH,Mccormick Taylor,10306,,5     ,Server,$5.50,48.88,,,,$268.84,,,,$268.86,$463.43,$35.00,$498.43
+7401: Youngstown OH,McGuire Autaum,14,,65    ,Premium Server,$7.50,31.72,,,,$237.90,,,,$237.88,$159.49,$65.00,$224.49
+7401: Youngstown OH,McNulty Bernard,27,,4     ,Cook,$14.00,46.67,6.30,,,$653.38,$132.30,,,$785.63,,,
+7401: Youngstown OH,Milakovich Andie,6,,4     ,Cook,$13.00,15.79,,,,$205.27,,,,$205.18,,,
+7401: Youngstown OH,Milligan Marykathleen,24,,5     ,Server,$5.50,46.16,,,,$253.88,,,,$253.83,$324.33,$37.03,$361.36
+7401: Youngstown OH,Milligan Marykathleen,24,,65    ,Premium Server,$7.50,11.23,,,,$84.22,,,,$84.25,$60.20,$13.00,$73.20
+7401: Youngstown OH,Ondic Donna,35,,5     ,Server,$5.50,20.96,,,,$115.28,,,,$115.23,$144.86,$75.00,$219.86
+7401: Youngstown OH,Ortiz Chrisopher,8,,4     ,Cook,$17.00,36.30,,,,$617.10,,,,$617.38,,,
+7401: Youngstown OH,Reed Ella,17,,5     ,Server,$5.50,0.02,,,,$0.11,,,,$0.09,,$17.00,$17.00
+7401: Youngstown OH,Roman Jessica,5,6,3     ,Host/Hostess,$11.00,9.10,,,,$100.10,,,,$100.10,,,
+7401: Youngstown OH,Roman Jessica,5,6,5     ,Server,$5.50,35.55,,,,$195.53,,,,$195.53,$202.47,$161.00,$363.47
+7401: Youngstown OH,Sackela Kirk,3,,7     ,Service Assistant,$13.75,30.93,,,,$425.29,,,,$425.10,,,
+7401: Youngstown OH,Yemma Benjamin,16,,7     ,Service Assistant,$13.50,12.25,,,,$165.38,,,,$165.38,,,
+7401: Youngstown OH,Yemma Denise,20,,55    ,Diamond Shift Coord.,$18.00,47.32,0.92,,,$851.76,$24.75,,,$876.45,$23.20,,$23.20
+7401: Youngstown OH,Yemma Denise,20,,65    ,Premium Server,$16.00,8.20,,,,$131.20,,,,$131.20,$54.87,,$54.87
+7401: Youngstown OH,Zieleniewski Christina,7,,55    ,Diamond Shift Coord.,$18.00,7.00,,,,$126.00,,,,$126.00,,,
+9690: Marietta OH,armstead keevin,96904836,96904836,4     ,Cook,$12.00,21.29,,,,$255.48,,,,$255.48,,,
+9690: Marietta OH,baker jasmine,96901109,96901109,5     ,Server,$5.50,23.97,,,,$131.84,,,,$131.85,$61.62,$43.02,$104.64
+9690: Marietta OH,Ballero Thomas,969014756,969014756,4     ,Cook,$11.00,38.03,,,,$418.33,,,,$418.33,,,
+9690: Marietta OH,Chutes Tyler,96906334,96906334,4     ,Cook,$11.50,43.31,,,,$498.06,,,,$498.10,,,
+9690: Marietta OH,conway samantha,96904148,96904148,5     ,Server,$5.50,43.51,,,,$239.31,,,,$239.33,$139.44,$125.00,$264.44
+9690: Marietta OH,Dalrymple Jessica,96902814,96902814,5     ,Server,$5.35,25.78,,,,$137.92,,,,$137.93,$102.89,$30.00,$132.89
+9690: Marietta OH,Gibbs Janet,96905973,96905973,4     ,Cook,$12.00,21.29,,,,$255.48,,,,$255.48,,,
+9690: Marietta OH,hollingsworth braiden,96901938,96901938,25    ,Server Trainee,$11.00,3.23,,,,$35.53,,,,$35.53,,,
+9690: Marietta OH,Hooten Kendrick,96907757,96907757,5     ,Server,$5.50,3.15,,,,$17.32,,,,$17.33,$13.38,,$13.38
+9690: Marietta OH,kidd anna,96905309,96905309,5     ,Server,$5.35,44.53,,,,$238.24,,,,$238.23,$263.22,$32.17,$295.39
+9690: Marietta OH,Kidd Cynthia,96905951,96905951,4     ,Cook,$12.00,7.21,1.06,,,$86.52,$19.08,,,$105.60,,,
+9690: Marietta OH,Kidd Cynthia,96905951,96905951,5     ,Server,$5.50,42.49,5.97,,,$233.69,$49.25,,,$282.96,$268.72,$123.56,$392.28
+9690: Marietta OH,Mincks Michelle,96907364,96907364,65    ,Premium Server,$7.00,13.27,,,,$92.89,,,,$92.89,$111.66,$5.00,$116.66
+9690: Marietta OH,Moore Rodney,96909578,96909578,4     ,Cook,$13.00,53.17,,,,$691.21,,,,$691.21,,,
+9690: Marietta OH,schnell kayla,96904636,96904636,5     ,Server,$5.50,20.49,,,,$112.69,,,,$112.70,$40.28,$35.47,$75.75
+9690: Marietta OH,Smith Matthew,96903352,96903352,5     ,Server,$5.50,25.28,,,,$139.04,,,,$139.05,$61.83,$20.95,$82.78
+9690: Marietta OH,Smith Matthew,96903352,96903352,25    ,Server Trainee,$11.00,8.92,,,,$98.12,,,,$98.12,$11.92,,$11.92
+9690: Marietta OH,Thompson Dre,96907553,96907553,4     ,Cook,$14.00,51.72,,,,$724.08,,,,$724.08,,,
+9690: Marietta OH,tincher kristin,96900481,96900481,4     ,Cook,$12.00,12.60,,,,$151.20,,,,$151.20,,,
+9690: Marietta OH,Tucker Kevin,96902175,96902175,65    ,Premium Server,$7.00,60.43,6.12,,,$423.01,$64.26,,,$487.27,$231.16,$85.99,$317.15
+9697: Findlay OH,Beiler Jamie,96970629,96970629,5     ,Server,$5.50,33.00,,,,$181.50,,,,$181.52,$272.45,$140.00,$412.45
+9697: Findlay OH,Buckmaster Fawn,96973219,96973219,5     ,Server,$5.50,2.88,,,,$15.84,,,,$15.84,,,
+9697: Findlay OH,Carrier Pamela,96978462,96978462,5     ,Server,$5.50,56.42,17.90,,,$310.31,$147.68,,,$458.03,$598.62,$225.00,$823.62
+9697: Findlay OH,Clark Krystal,96972859,96972859,5     ,Server,$5.50,26.08,,,,$143.44,,,,$143.45,$125.34,$122.53,$247.87
+9697: Findlay OH,Collins LaDre,96973566,96973566,4     ,Cook,$14.00,29.21,,,,$408.94,,,,$408.94,,,
+9697: Findlay OH,Edwards Louis,96975213,96975213,4     ,Cook,$16.50,56.79,14.32,,,$937.03,$354.42,,,$1291.48,,,
+9697: Findlay OH,Garza Marah,96972521,96972521,5     ,Server,$5.50,50.18,,,,$275.99,,,,$276.02,$150.44,$64.60,$215.04
+9697: Findlay OH,Haas Camden,96973118,96973118,13    ,Host/Hostess Trainee,$11.00,11.56,,,,$127.16,,,,$127.16,$2.00,,$2.00
+9697: Findlay OH,Honesto Linda,96971849,96971849,52    ,Hourly RM,$16.00,33.96,,,,$543.36,,,,$543.36,,,
+9697: Findlay OH,Kline Morgan,96976902,96976902,5     ,Server,$5.35,21.56,,,,$115.35,,,,$115.36,$179.60,$20.00,$199.60
+9697: Findlay OH,Knox Alyssa,96972930,96972930,5     ,Server,$5.50,43.77,,,,$240.74,,,,$240.76,$497.69,$120.00,$617.69
+9697: Findlay OH,Marshall Stephanie,96978754,96978754,5     ,Server,$5.50,50.68,9.36,,,$278.74,$77.22,,,$356.00,$576.43,$367.56,$943.99
+9697: Findlay OH,McCarty Krystal,96973142,96973142,5     ,Server,$5.50,11.41,,,,$62.76,,,,$62.76,$109.91,$25.00,$134.91
+9697: Findlay OH,Oliver allexandra,96972542,96972542,5     ,Server,$5.50,15.52,,,,$85.36,,,,$85.36,$50.04,,$50.04
+9697: Findlay OH,Ramsey Richard,96979077,96979077,4     ,Cook,$15.00,56.67,0.19,,,$850.05,$4.28,,,$854.33,,,
+9697: Findlay OH,roberson sha'quell,96970962,96970962,4     ,Cook,$14.00,16.74,,,,$234.36,,,,$234.36,,,
+9697: Findlay OH,Robinson Pamela,96973357,96973357,7     ,Service Assistant,$12.00,54.54,,,,$654.48,,,,$654.48,,,
+9697: Findlay OH,Russo Theodore,96979112,96979112,4     ,Cook,$15.00,17.72,,,,$265.80,,,,$265.80,,,
+9697: Findlay OH,Tennison Bridgette,96972893,96972893,7     ,Service Assistant,$13.00,39.08,,,,$508.04,,,,$508.04,,,
+9697: Findlay OH,Tennison Madalin,96970739,96970739,4     ,Cook,$15.00,22.73,,,,$340.95,,,,$340.95,,,
+9697: Findlay OH,Tennison Madalin,96970739,96970739,5     ,Server,$5.35,31.48,5.42,,,$168.42,$43.50,,,$211.92,$214.55,$73.00,$287.55
+9697: Findlay OH,Tennison Nicole,96970411,96970411,5     ,Server,$5.50,52.15,,,,$286.82,,,,$286.83,$434.77,$94.00,$528.77
+9697: Findlay OH,Trice Adrienne,96970579,96970579,7     ,Service Assistant,$12.00,42.78,,,,$513.36,,,,$513.36,,,
+9697: Findlay OH,Walter Samantha,96975823,96975823,5     ,Server,$5.50,12.72,,,,$69.96,,,,$69.97,$136.62,,$136.62
+9697: Findlay OH,Whitaker Creshonna,96979259,96979259,4     ,Cook,$14.00,22.37,,,,$313.18,,,,$313.18,,,
+9697: Findlay OH,Wright Krissy,96974311,96974311,5     ,Server,$5.50,9.15,,,,$50.33,,,,$50.33,$35.40,$17.45,$52.85

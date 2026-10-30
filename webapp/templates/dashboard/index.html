@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — {{ app_name }}{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block page_subtitle %}Denny's &amp; Hotel accounting overview{% endblock %}
+{% block content %}
+
+{# Aggregate KPI values from passed data #}
+{% set total_files = counts.values() | sum %}
+{% set completed_count = status_counts.get('Completed', 0) %}
+{% set review_count = status_counts.get('Needs Review', 0) %}
+{% set progress_count = status_counts.get('In Progress', 0) %}
+
+<!-- ─── KPI grid ───────────────────────────────────────────── -->
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:16px;">
+  <div class="kpi-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:13px;color:var(--muted-fg);font-weight:500;">Files this month</span>
+      <span style="font-size:11px;font-weight:600;color:var(--success);background:color-mix(in srgb,var(--success) 14%,transparent);border-radius:999px;padding:2px 7px;">+12%</span>
+    </div>
+    <div style="font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:10px;font-variant-numeric:tabular-nums;">{{ total_files }}</div>
+    <div style="font-size:12px;color:var(--muted-fg);margin-top:2px;">across {{ work_types | length }} converters</div>
+  </div>
+  <div class="kpi-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:13px;color:var(--muted-fg);font-weight:500;">Completed</span>
+      <span style="font-size:11px;font-weight:600;color:var(--success);background:color-mix(in srgb,var(--success) 14%,transparent);border-radius:999px;padding:2px 7px;">+8%</span>
+    </div>
+    <div style="font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:10px;font-variant-numeric:tabular-nums;">{{ completed_count }}</div>
+    <div style="font-size:12px;color:var(--muted-fg);margin-top:2px;">{% if total_files %}{{ ((completed_count / total_files) * 100) | round | int }}% of this month{% else %}—{% endif %}</div>
+  </div>
+  <div class="kpi-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:13px;color:var(--muted-fg);font-weight:500;">Needs review</span>
+      <span style="font-size:11px;font-weight:600;color:var(--success);background:color-mix(in srgb,var(--success) 14%,transparent);border-radius:999px;padding:2px 7px;">{{ review_count }}</span>
+    </div>
+    <div style="font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:10px;font-variant-numeric:tabular-nums;">{{ review_count }}</div>
+    <div style="font-size:12px;color:var(--muted-fg);margin-top:2px;">flagged discrepancies</div>
+  </div>
+  <div class="kpi-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:13px;color:var(--muted-fg);font-weight:500;">In progress</span>
+      <span style="font-size:11px;font-weight:600;color:var(--muted-fg);background:color-mix(in srgb,var(--muted-fg) 14%,transparent);border-radius:999px;padding:2px 7px;">{{ progress_count }}</span>
+    </div>
+    <div style="font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:10px;font-variant-numeric:tabular-nums;">{{ progress_count }}</div>
+    <div style="font-size:12px;color:var(--muted-fg);margin-top:2px;">awaiting completion</div>
+  </div>
+</div>
+
+<!-- ─── Charts row ─────────────────────────────────────────── -->
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px;">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;">
+      <div>
+        <h2 style="font-size:14px;font-weight:600;margin:0;color:var(--fg);">Files uploaded</h2>
+        <p style="font-size:12px;color:var(--muted-fg);margin:2px 0 0;">Last 6 months</p>
+      </div>
+      <span style="font-size:12px;color:var(--muted-fg);">Total {{ total_files }}</span>
+    </div>
+    <canvas id="filesChart" height="120"></canvas>
+  </div>
+  <div class="card">
+    <h2 style="font-size:14px;font-weight:600;margin:0 0 4px;color:var(--fg);">By status</h2>
+    <p style="font-size:12px;color:var(--muted-fg);margin:0 0 12px;">This month</p>
+    <canvas id="statusChart" height="180"></canvas>
+  </div>
+</div>
+
+<!-- ─── Bottom three-col ───────────────────────────────────── -->
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+
+  <!-- Recent files -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <h2 style="font-size:14px;font-weight:600;margin:0;color:var(--fg);">Recent files</h2>
+      <a href="/records" style="font-size:12px;color:var(--gold);font-weight:500;cursor:pointer;">View all</a>
+    </div>
+    <div style="display:flex;flex-direction:column;">
+      {% for r in recent %}
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--border);">
+        <div style="min-width:0;flex:1;">
+          <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--fg);">{{ r.file_name }}</div>
+          <div style="font-size:11.5px;color:var(--muted-fg);">{{ r.work_type }} · {{ r.location_name }}</div>
+        </div>
+        <span class="status-badge status-{{ r.status }}">{{ r.status }}</span>
+      </div>
+      {% else %}
+      <div style="padding:16px 0;font-size:13px;color:var(--muted-fg);text-align:center;">No files yet. Upload from Records.</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Needs attention + Top locations -->
+  <div class="card">
+    <h2 style="font-size:14px;font-weight:600;margin:0 0 12px;color:var(--fg);">Needs attention</h2>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      {% for r in needs_review %}
+      <div style="border:1px solid var(--border);border-left:3px solid var(--danger);border-radius:8px;padding:10px 12px;background:var(--card-2);">
+        <div style="font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--fg);">{{ r.file_name }}</div>
+        <div style="font-size:11.5px;color:var(--danger);margin-top:2px;">Discrepancy: {{ r.discrepancy }}</div>
+      </div>
+      {% else %}
+      <div style="font-size:13px;color:var(--muted-fg);">Nothing flagged.</div>
+      {% endfor %}
+    </div>
+    <h2 style="font-size:14px;font-weight:600;margin:20px 0 10px;color:var(--fg);">Top locations</h2>
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      {% set max_loc = top_locations[0][1] if top_locations else 1 %}
+      {% for name, cnt in top_locations %}
+      <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;">
+        <span style="flex:1;color:var(--muted-fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ name }}</span>
+        <div style="width:70px;height:6px;border-radius:999px;background:var(--muted);overflow:hidden;">
+          <div style="height:100%;border-radius:999px;background:var(--gold);width:{{ ((cnt / max_loc) * 100) | round | int }}%;"></div>
+        </div>
+        <span style="font-weight:600;font-variant-numeric:tabular-nums;width:24px;text-align:right;color:var(--fg);">{{ cnt }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Activity -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <h2 style="font-size:14px;font-weight:600;margin:0;color:var(--fg);">Activity</h2>
+      <a href="/audit" style="font-size:12px;color:var(--gold);font-weight:500;cursor:pointer;">Full history</a>
+    </div>
+    <div style="display:flex;flex-direction:column;">
+      {% for a in activity %}
+      <div style="display:flex;gap:10px;padding:9px 0;border-top:1px solid var(--border);">
+        <div style="width:7px;height:7px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0;"></div>
+        <div style="min-width:0;">
+          <div style="font-size:12.5px;color:var(--fg);">
+            <span style="font-weight:600;">{{ a.user.username if a.user else 'system' }}</span>
+            <span style="color:var(--muted-fg);"> {{ a.action }}</span>
+          </div>
+          <div style="font-size:11px;color:var(--muted-fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ a.detail }}</div>
+          <div style="font-size:10.5px;color:var(--muted-fg);">{{ a.created_at }}</div>
+        </div>
+      </div>
+      {% else %}
+      <div style="padding:16px 0;font-size:13px;color:var(--muted-fg);text-align:center;">No activity yet.</div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+  const labels = {{ chart_labels | tojson }};
+  const values = {{ chart_values | tojson }};
+  const statusLabels = {{ status_counts.keys() | list | tojson }};
+  const statusValues = {{ status_counts.values() | list | tojson }};
+
+  function chartColors() {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return {
+      bar: dark ? '#e8a317' : '#0b1f3a',
+      barHl: '#e8a317',
+      tick: dark ? '#a1a1aa' : '#71717a',
+      grid: dark ? 'rgba(38,38,41,0.8)' : 'rgba(228,228,231,0.8)',
+      doughnut: dark
+        ? ['#e8a317', '#4ade80', '#60a5fa', '#f87171', '#a1a1aa', '#22d3ee']
+        : ['#0b1f3a', '#e8a317', '#16a34a', '#dc2626', '#71717a', '#0e7490'],
+    };
+  }
+
+  let filesChart, statusChart;
+  function buildCharts() {
+    const c = chartColors();
+    if (filesChart) filesChart.destroy();
+    if (statusChart) statusChart.destroy();
+    filesChart = new Chart(document.getElementById('filesChart'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Files',
+          data: values,
+          backgroundColor: values.map((_, i) => i === values.length - 1 ? '#e8a317' : `color-mix(in srgb, #e8a317 42%, ${c.grid})`),
+          borderRadius: 7,
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: c.tick, font: { size: 11 } }, grid: { color: c.grid } },
+          y: { beginAtZero: true, ticks: { precision: 0, color: c.tick, font: { size: 11 } }, grid: { color: c.grid } },
+        },
+      },
+    });
+    statusChart = new Chart(document.getElementById('statusChart'), {
+      type: 'doughnut',
+      data: { labels: statusLabels, datasets: [{ data: statusValues, backgroundColor: c.doughnut, borderWidth: 0 }] },
+      options: {
+        cutout: '62%',
+        plugins: {
+          legend: { position: 'bottom', labels: { color: c.tick, font: { size: 11 }, padding: 10 } },
+        },
+      },
+    });
+  }
+  buildCharts();
+  window.addEventListener('pla-theme', buildCharts);
+</script>
+{% endblock %}

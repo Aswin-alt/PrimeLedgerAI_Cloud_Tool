@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}Records — {{ app_name }}{% endblock %}
+{% block page_title %}Accounting Records{% endblock %}
+{% block page_subtitle %}Upload, track, and manage files{% endblock %}
+{% block content %}
+
+<!-- Actions bar -->
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;align-items:center;" x-data="{ showUpload: false }">
+  {% if can('records.upload') %}
+  <button class="btn btn-primary" @click="showUpload = !showUpload">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    Upload files
+  </button>
+  {% endif %}
+  {% if can('records.export') %}
+  <a href="/records/export" class="btn btn-secondary">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    Export CSV
+  </a>
+  {% endif %}
+
+  <!-- Upload panel -->
+  <div x-show="showUpload" x-cloak style="width:100%;" x-transition>
+    <div class="card" style="margin-top:4px;animation:pl-pop .2s ease;">
+      <form method="post" action="/records/upload" enctype="multipart/form-data">
+        <!-- Drop zone -->
+        <div class="dropzone" style="margin-bottom:16px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 8px;display:block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+          <div style="font-size:13.5px;font-weight:600;color:var(--fg);">Drop files here or click to browse</div>
+          <div style="font-size:12px;color:var(--muted-fg);margin-top:3px;">CSV, XLSX or PDF · up to 25 MB each · multiple files supported</div>
+          <input type="file" name="files" accept=".csv,.xlsx,.pdf" multiple required class="input" style="margin-top:12px;height:auto;padding:6px;" />
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;">
+          <div>
+            <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Work type</label>
+            <select name="work_type" class="input" required>
+              {% for wt in work_types %}<option>{{ wt }}</option>{% endfor %}
+            </select>
+          </div>
+          <div>
+            <label style="font-size:12px;font-weight:500;color:var(--muted-fg);display:block;margin-bottom:5px;">Location</label>
+            <input name="location" class="input" value="All" />
+          </div>
+          <button class="btn btn-primary" type="submit">Start upload</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Filters -->
+<div class="card" style="margin-bottom:16px;padding:14px;">
+  <form method="get" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+    <div style="position:relative;flex:1;min-width:220px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--muted-fg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input name="q" class="input" value="{{ filters.q }}" placeholder="Search file or note…" style="padding-left:34px;" />
+    </div>
+    <select name="category" class="input" style="width:auto;">
+      <option value="">All categories</option>
+      {% for wt in work_types %}<option {% if filters.category==wt %}selected{% endif %}>{{ wt }}</option>{% endfor %}
+    </select>
+    <select name="location" class="input" style="width:auto;">
+      <option value="">All locations</option>
+      {% for loc in locations %}<option {% if filters.location==loc %}selected{% endif %}>{{ loc }}</option>{% endfor %}
+    </select>
+    <select name="status" class="input" style="width:auto;">
+      <option value="">All statuses</option>
+      {% for s in statuses %}<option {% if filters.status==s %}selected{% endif %}>{{ s }}</option>{% endfor %}
+    </select>
+    <button class="btn btn-secondary" type="submit">Filter</button>
+  </form>
+</div>
+
+<!-- Table -->
+<div class="card" style="padding:0;overflow:hidden;">
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Work type</th><th>Date</th><th>Location</th><th>File</th>
+          <th>Status</th><th>Follow-up</th><th style="text-align:right;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in records %}
+        <tr>
+          <td style="font-weight:500;">{{ r.work_type }}</td>
+          <td style="color:var(--muted-fg);font-variant-numeric:tabular-nums;">{{ r.work_date }}</td>
+          <td style="color:var(--muted-fg);">{{ r.location_name }}</td>
+          <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="{{ r.file_name }}">{{ r.file_name }}</td>
+          <td><span class="status-badge status-{{ r.status }}">{{ r.status }}</span></td>
+          <td style="color:var(--muted-fg);max-width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ r.follow_up or '—' }}</td>
+          <td style="text-align:right;white-space:nowrap;">
+            {% if can('records.edit') %}
+            <form method="post" action="/records/{{ r.id }}/status" class="inline">
+              <select name="status" class="input" style="width:auto;height:30px;font-size:12px;padding:0 8px;display:inline-block;" onchange="this.form.submit()">
+                {% for s in statuses %}
+                <option {% if r.status==s %}selected{% endif %}>{{ s }}</option>
+                {% endfor %}
+              </select>
+            </form>
+            {% endif %}
+            {% if can('records.remove') %}
+            <form method="post" action="/records/{{ r.id }}/remove" class="inline" onsubmit="return confirm('Remove from dashboard? File on disk is kept.')">
+              <button style="color:var(--muted-fg);cursor:pointer;padding:5px;display:inline-flex;background:none;border:none;" type="submit" title="Remove">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+              </button>
+            </form>
+            {% endif %}
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7" style="text-align:center;color:var(--muted-fg);padding:2rem;">No records match.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted-fg);">
+    <span>{{ filters.total }} total records</span>
+    <div style="display:flex;gap:6px;align-items:center;">
+      {% if filters.page > 1 %}
+      <a class="btn btn-secondary" style="height:30px;padding:0 11px;font-size:12.5px;" href="?page={{ filters.page - 1 }}&category={{ filters.category }}&location={{ filters.location }}&status={{ filters.status }}&q={{ filters.q }}">Prev</a>
+      {% endif %}
+      <span style="padding:0 6px;">Page {{ filters.page }} / {{ filters.pages }}</span>
+      {% if filters.page < filters.pages %}
+      <a class="btn btn-secondary" style="height:30px;padding:0 11px;font-size:12.5px;" href="?page={{ filters.page + 1 }}&category={{ filters.category }}&location={{ filters.location }}&status={{ filters.status }}&q={{ filters.q }}">Next</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
