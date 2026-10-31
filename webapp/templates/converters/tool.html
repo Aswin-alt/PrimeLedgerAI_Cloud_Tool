@@ -89,7 +89,7 @@
         </div>
         <div style="min-width:0;flex:1;">
           <div style="font-size:13px;font-weight:500;color:var(--fg);">{{ j.message }}</div>
-          <div style="font-size:11px;color:var(--muted-fg);">{{ j.created_at }}</div>
+          <div style="font-size:11px;color:var(--muted-fg);">{{ j.created_at|localdt }}</div>
         </div>
         {% if ok and j.output_path %}
         <a href="/converters/jobs/{{ j.id }}/download" style="font-size:12px;color:var(--gold);font-weight:500;cursor:pointer;white-space:nowrap;">Download</a>

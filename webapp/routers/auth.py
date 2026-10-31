@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import re
-from datetime import datetime
 from typing import Optional
 
 from fastapi import APIRouter, Depends, Form, Request
@@ -14,6 +13,7 @@ from webapp.models import Role, User
 from webapp.security import client_ip, get_current_user, hash_password, verify_password
 from webapp.services.audit_service import write_audit
 from webapp.templating import templates_ctx as templates
+from webapp.timezone import utc_now
 
 router = APIRouter(tags=["auth"])
 
@@ -61,7 +61,7 @@ def login_submit(
             status_code=400,
         )
     request.session["user_id"] = user.id
-    user.last_login = datetime.utcnow()
+    user.last_login = utc_now()
     db.commit()
     write_audit(db, user, "login.success", "user", user.id, "Signed in", ip)
     return RedirectResponse("/", status_code=303)
@@ -130,7 +130,7 @@ def signup_submit(
         password_hash=hash_password(password),
         role_id=viewer.id,
         is_active=True,
-        last_login=datetime.utcnow(),
+        last_login=utc_now(),
     )
     db.add(user)
     db.commit()

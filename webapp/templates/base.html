@@ -149,6 +149,16 @@
           <span style="flex:1;text-align:left;">Search or jump to…</span>
           <kbd style="font-family:inherit;font-size:11px;border:1px solid var(--border);border-radius:5px;padding:1px 5px;background:var(--muted);">⌘K</kbd>
         </button>
+        <!-- Timezone (session cookie; default PDT) -->
+        <form method="post" action="/settings/timezone" style="margin:0;">
+          <select name="tz" class="input" title="Display timezone"
+                  style="width:auto;height:32px;padding:0 8px;font-size:12px;font-weight:600;"
+                  onchange="this.form.submit()">
+            {% for key in tz_options %}
+            <option value="{{ key }}" {% if tz_key == key %}selected{% endif %}>{{ key }}</option>
+            {% endfor %}
+          </select>
+        </form>
         <!-- Theme toggle -->
         <button type="button" class="btn-theme" title="Toggle light / dark"
                 @click="PLATheme.toggle(); theme = PLATheme.get()">

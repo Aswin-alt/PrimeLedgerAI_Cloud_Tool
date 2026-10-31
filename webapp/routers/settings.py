@@ -7,9 +7,10 @@ from sqlalchemy.orm import Session
 
 from webapp.database import get_db
 from webapp.models import ChartOfAccountRule, FileRecord, Location, User
-from webapp.security import client_ip, require
+from webapp.security import client_ip, get_current_user, require
 from webapp.services.audit_service import write_audit
 from webapp.templating import templates_ctx as templates
+from webapp.timezone import COOKIE_MAX_AGE, COOKIE_NAME, normalize_tz_key
 
 router = APIRouter(prefix="/settings", tags=["settings"])
 
@@ -21,6 +22,29 @@ COA_TOOL_SCOPES = [
     ("invoice", "Weekly Denny's Invoice"),
     ("hotel_revenue", "Marietta Hotel Revenue"),
 ]
+
+
+@router.post("/timezone")
+def set_timezone(
+    request: Request,
+    tz: str = Form(...),
+    db: Session = Depends(get_db),
+):
+    """Persist display timezone in a cookie for this browser."""
+    # Optional auth: allow when logged in; still set cookie if somehow called while logged out
+    get_current_user(request, db)
+    key = normalize_tz_key(tz)
+    referer = request.headers.get("referer") or "/"
+    response = RedirectResponse(referer, status_code=303)
+    response.set_cookie(
+        COOKIE_NAME,
+        key,
+        max_age=COOKIE_MAX_AGE,
+        httponly=False,
+        samesite="lax",
+        path="/",
+    )
+    return response
 
 
 @router.get("/locations", response_class=HTMLResponse)

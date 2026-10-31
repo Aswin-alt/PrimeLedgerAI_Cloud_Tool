@@ -97,7 +97,7 @@
           <td style="padding-left:20px;font-weight:500;color:var(--fg);">{{ ov.permission.code }}</td>
           <td>{{ 'Grant' if ov.allowed else 'Deny' }}</td>
           <td style="font-size:12px;color:var(--muted-fg);">
-            {{ ov.starts_at or '—' }} → {% if ov.expires_at %}{{ ov.expires_at }}{% else %}open-ended{% endif %}
+            {{ ov.starts_at|localdt }} → {% if ov.expires_at %}{{ ov.expires_at|localdt }}{% else %}open-ended{% endif %}
           </td>
           <td style="font-size:12px;color:var(--muted-fg);">{{ ov.reason }}</td>
           <td>

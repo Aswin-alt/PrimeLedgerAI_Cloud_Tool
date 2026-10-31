@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import csv
 import shutil
-from datetime import date, datetime
 from io import StringIO
 from pathlib import Path
 from typing import Optional
@@ -19,6 +18,7 @@ from webapp.models import FileRecord, Location, User
 from webapp.security import client_ip, require
 from webapp.services.audit_service import write_audit
 from webapp.templating import templates_ctx as templates
+from webapp.timezone import today as tz_today
 
 router = APIRouter(prefix="/records", tags=["records"])
 
@@ -116,7 +116,7 @@ async def upload_files(
             shutil.copyfileobj(uf.file, out)
         rec = FileRecord(
             work_type=work_type,
-            work_date=date.today().strftime("%m/%d/%Y"),
+            work_date=tz_today(request).strftime("%m/%d/%Y"),
             location_name=loc,
             file_name=dest.name,
             stored_path=str(dest),
@@ -221,7 +221,7 @@ def export_tracker(
         ])
     write_audit(db, user, "records.export", "file_record", "", f"{len(rows)} rows", client_ip(request))
     buf.seek(0)
-    filename = f"PrimeLedgerAI_Tracker_{date.today():%Y%m%d}.csv"
+    filename = f"PrimeLedgerAI_Tracker_{tz_today(request):%Y%m%d}.csv"
     return StreamingResponse(
         iter([buf.getvalue()]),
         media_type="text/csv",
