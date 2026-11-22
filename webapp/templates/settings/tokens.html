@@ -25,7 +25,7 @@
         {% for t in tokens %}
         <tr>
           <td style="padding-left:20px;font-weight:500;color:var(--fg);">{{ t.name }}</td>
-          <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ t.created_at }}</td>
+          <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ t.created_at|localdt }}</td>
           <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ t.last_used_at or '—' }}</td>
           <td>
             <span style="font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:5px;color:{% if t.is_active %}var(--success){% else %}var(--muted-fg){% endif %};">

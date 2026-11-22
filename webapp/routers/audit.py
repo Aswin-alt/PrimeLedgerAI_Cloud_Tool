@@ -4,7 +4,6 @@ from __future__ import annotations
 import csv
 from datetime import datetime
 from io import StringIO
-from typing import Optional
 
 from fastapi import APIRouter, Depends, Query, Request
 from fastapi.responses import HTMLResponse, StreamingResponse
@@ -16,6 +15,7 @@ from webapp.policy import has_permission
 from webapp.security import client_ip, require
 from webapp.services.audit_service import write_audit
 from webapp.templating import templates_ctx as templates
+from webapp.timezone import day_bounds_utc, format_dt, get_tz_key
 
 router = APIRouter(prefix="/audit", tags=["audit"])
 
@@ -32,6 +32,7 @@ def audit_list(
     date_to: str = Query(""),
     page: int = Query(1, ge=1),
 ):
+    tz_key = get_tz_key(request)
     query = db.query(AuditLog).options(joinedload(AuditLog.user))
     if not has_permission(db, user, "audit.view_all"):
         query = query.filter(AuditLog.user_id == user.id)
@@ -43,17 +44,16 @@ def audit_list(
         query = query.filter(AuditLog.entity_type == entity_type.strip())
     if date_from.strip():
         try:
-            query = query.filter(
-                AuditLog.created_at >= datetime.strptime(date_from, "%Y-%m-%d")
-            )
+            day = datetime.strptime(date_from, "%Y-%m-%d").date()
+            start_utc, _ = day_bounds_utc(day, tz_key)
+            query = query.filter(AuditLog.created_at >= start_utc)
         except ValueError:
             pass
     if date_to.strip():
         try:
-            query = query.filter(
-                AuditLog.created_at
-                <= datetime.strptime(date_to + " 23:59:59", "%Y-%m-%d %H:%M:%S")
-            )
+            day = datetime.strptime(date_to, "%Y-%m-%d").date()
+            _, end_utc = day_bounds_utc(day, tz_key)
+            query = query.filter(AuditLog.created_at < end_utc)
         except ValueError:
             pass
 
@@ -95,6 +95,7 @@ def export_audit(
     db: Session = Depends(get_db),
     user: User = Depends(require("audit.export")),
 ):
+    tz_key = get_tz_key(request)
     query = db.query(AuditLog).options(joinedload(AuditLog.user))
     if not has_permission(db, user, "audit.view_all"):
         query = query.filter(AuditLog.user_id == user.id)
@@ -104,7 +105,7 @@ def export_audit(
     writer.writerow(["When", "User", "Action", "Entity", "Entity ID", "Detail", "IP"])
     for r in rows:
         writer.writerow([
-            r.created_at,
+            format_dt(r.created_at, tz_key, empty=""),
             r.user.username if r.user else "",
             r.action,
             r.entity_type,

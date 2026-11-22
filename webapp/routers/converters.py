@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import json
 import shutil
-from datetime import datetime
 from decimal import Decimal
 from pathlib import Path
 from typing import Any, Optional
@@ -19,6 +18,7 @@ from webapp.security import client_ip, require
 from webapp.services import converter_bridge as bridge
 from webapp.services.audit_service import write_audit
 from webapp.templating import templates_ctx as templates
+from webapp.timezone import now as tz_now, utc_now
 
 router = APIRouter(prefix="/converters", tags=["converters"])
 
@@ -80,14 +80,15 @@ async def run_converter(
     upload_dir.mkdir(parents=True, exist_ok=True)
     dest = upload_dir / (file.filename or "upload.bin")
     # unique
+    local_now = tz_now(request)
     if dest.exists():
-        dest = dest.with_name(f"{dest.stem}_{datetime.now():%H%M%S}{dest.suffix}")
+        dest = dest.with_name(f"{dest.stem}_{local_now:%H%M%S}{dest.suffix}")
     with dest.open("wb") as out:
         shutil.copyfileobj(file.file, out)
 
     rec = FileRecord(
         work_type=tool["work_type"],
-        work_date=datetime.now().strftime("%m/%d/%Y"),
+        work_date=local_now.strftime("%m/%d/%Y"),
         location_name=location if tool_key == "hotel_revenue" else "All",
         file_name=dest.name,
         stored_path=str(dest),
@@ -136,7 +137,7 @@ async def run_converter(
     job.output_path = result.output_path
     job.message = result.message
     job.discrepancy = result.discrepancy
-    job.finished_at = datetime.utcnow()
+    job.finished_at = utc_now()
     rec.status = "Completed" if result.success else "Needs Review"
     rec.discrepancy = f"{result.discrepancy:.2f}"
     db.commit()
@@ -289,7 +290,7 @@ async def invoice_export(
     # Build a minimal MapperApp-like export using the module helpers
     mod = bridge.invoice_module()
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    out = OUTPUT_DIR / f"Denny_Invoice_Combined_{datetime.now():%Y%m%d%H%M%S}.csv"
+    out = OUTPUT_DIR / f"Denny_Invoice_Combined_{tz_now(request):%Y%m%d%H%M%S}.csv"
 
     # Use a lightweight write mirroring MapperApp._write_csv grouping
     from collections import defaultdict
@@ -382,7 +383,7 @@ async def invoice_export(
         output_path=str(out),
         status="completed",
         message=f"Debits = Credits = ${grand_total:,.2f}",
-        finished_at=datetime.utcnow(),
+        finished_at=utc_now(),
     )
     db.add(job)
     db.commit()

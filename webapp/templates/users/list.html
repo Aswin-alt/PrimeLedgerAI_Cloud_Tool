@@ -33,7 +33,7 @@
                 {{ 'Active' if u.is_active else 'Inactive' }}
               </span>
             </td>
-            <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ u.last_login or '—' }}</td>
+            <td style="color:var(--muted-fg);font-size:12px;font-variant-numeric:tabular-nums;">{{ u.last_login|localdt }}</td>
             <td><a href="/users/{{ u.id }}" style="font-size:12.5px;color:var(--gold);font-weight:500;">Manage</a></td>
           </tr>
           {% endfor %}

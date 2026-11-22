@@ -34,7 +34,7 @@
       <tbody>
         {% for r in rows %}
         <tr>
-          <td style="white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted-fg);">{{ r.created_at }}</td>
+          <td style="white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted-fg);">{{ r.created_at|localdt }}</td>
           <td style="font-weight:500;">{{ r.user.username if r.user else 'system' }}</td>
           <td><span style="font-size:11px;font-weight:600;background:var(--muted);color:var(--fg);border-radius:6px;padding:2px 8px;">{{ r.action }}</span></td>
           <td style="color:var(--muted-fg);font-size:12px;">{{ r.entity_type }} {% if r.entity_id %}#{{ r.entity_id }}{% endif %}</td>

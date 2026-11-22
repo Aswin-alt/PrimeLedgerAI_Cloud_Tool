@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 import shutil
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 from decimal import Decimal
 from pathlib import Path
 from typing import Any, Optional
@@ -24,6 +24,7 @@ from webapp.security import client_ip, require
 from webapp.services import tally_bridge as bridge
 from webapp.services.audit_service import write_audit
 from webapp.templating import templates_ctx as templates
+from webapp.timezone import now as tz_now
 
 router = APIRouter(prefix="/tally", tags=["tally"])
 
@@ -409,7 +410,7 @@ def tally_pdf(
         report = _build(db, run)
         start = bridge.parse_input_date(run.date_from, "From date")
         end = bridge.parse_input_date(run.date_to, "To date")
-        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        stamp = tz_now(request).strftime("%Y%m%d_%H%M%S")
         if run.tool == "cash_deposit":
             name = f"Cash_Deposit_Reconciliation_{stamp}.pdf"
             out = bridge.cash_deposit_pdf(OUTPUT_DIR / name, report, start, end, run.input_path)

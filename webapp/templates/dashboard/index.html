@@ -133,7 +133,7 @@
             <span style="color:var(--muted-fg);"> {{ a.action }}</span>
           </div>
           <div style="font-size:11px;color:var(--muted-fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ a.detail }}</div>
-          <div style="font-size:10.5px;color:var(--muted-fg);">{{ a.created_at }}</div>
+          <div style="font-size:10.5px;color:var(--muted-fg);">{{ a.created_at|localdt }}</div>
         </div>
       </div>
       {% else %}

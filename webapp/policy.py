@@ -8,6 +8,7 @@ from typing import Optional
 from sqlalchemy.orm import Session, joinedload
 
 from webapp.models import Permission, RolePermission, User, UserPermissionOverride
+from webapp.timezone import utc_now
 
 _cache_version = 0
 _cache_lock = Lock()
@@ -32,7 +33,7 @@ def _is_override_active(override: UserPermissionOverride, now: datetime) -> bool
 
 def purge_expired_overrides(db: Session, now: Optional[datetime] = None) -> int:
     """Lazily delete expired overrides. Returns count deleted."""
-    now = now or datetime.utcnow()
+    now = now or utc_now()
     expired = (
         db.query(UserPermissionOverride)
         .filter(
@@ -58,7 +59,7 @@ def effective_permissions(db: Session, user: User) -> set[str]:
         if key in _perm_cache:
             return set(_perm_cache[key])
 
-    now = datetime.utcnow()
+    now = utc_now()
     # Role grants
     granted: set[str] = set()
     denied: set[str] = set()
@@ -118,7 +119,7 @@ def permission_status_for_user(
     db: Session, user: User
 ) -> list[dict]:
     """Return Inherited/Granted/Denied status for every permission (for UI)."""
-    now = datetime.utcnow()
+    now = utc_now()
     all_perms = db.query(Permission).order_by(Permission.category, Permission.code).all()
     role_map = {
         rp.permission_id: rp.allowed

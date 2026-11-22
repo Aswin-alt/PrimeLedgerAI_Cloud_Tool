@@ -2,8 +2,6 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from datetime import date, datetime, timedelta
-
 from fastapi import APIRouter, Depends, Request
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session, joinedload
@@ -13,6 +11,7 @@ from webapp.database import get_db
 from webapp.models import AuditLog, FileRecord, User
 from webapp.security import require
 from webapp.templating import templates_ctx as templates
+from webapp.timezone import get_tz_key, month_bounds_utc, today
 
 router = APIRouter(tags=["dashboard"])
 
@@ -23,9 +22,11 @@ def dashboard(
     db: Session = Depends(get_db),
     user: User = Depends(require("dashboard.view")),
 ):
-    today = date.today()
-    month_prefix = today.strftime("%m/")
-    month_suffix = today.strftime("/%Y")
+    tz_key = get_tz_key(request)
+    local_today = today(tz_key=tz_key)
+    month_prefix = local_today.strftime("%m/")
+    month_suffix = local_today.strftime("/%Y")
+    m_start, m_end = month_bounds_utc(local_today.year, local_today.month, tz_key)
 
     counts = {}
     for wt in WORK_TYPES:
@@ -37,15 +38,10 @@ def dashboard(
         )
         if counts[wt] == 0:
             # also count by created_at month if work_date empty/mismatched
-            start = today.replace(day=1)
-            if today.month == 12:
-                end = today.replace(year=today.year + 1, month=1, day=1)
-            else:
-                end = today.replace(month=today.month + 1, day=1)
             counts[wt] = (
                 db.query(FileRecord)
                 .filter(FileRecord.work_type == wt)
-                .filter(FileRecord.created_at >= start, FileRecord.created_at < end)
+                .filter(FileRecord.created_at >= m_start, FileRecord.created_at < m_end)
                 .count()
             )
 
@@ -70,21 +66,19 @@ def dashboard(
         .all()
     )
 
-    # Analytics: last 6 months file counts
+    # Analytics: last 6 months file counts (in display timezone)
     chart_labels = []
     chart_values = []
     for i in range(5, -1, -1):
-        d = today.replace(day=1) - timedelta(days=30 * i)
+        month_index = local_today.year * 12 + local_today.month - 1 - i
+        year, month_index = divmod(month_index, 12)
+        d = local_today.replace(year=year, month=month_index + 1, day=1)
         label = d.strftime("%b %Y")
         chart_labels.append(label)
-        m_start = d.replace(day=1)
-        if m_start.month == 12:
-            m_end = m_start.replace(year=m_start.year + 1, month=1, day=1)
-        else:
-            m_end = m_start.replace(month=m_start.month + 1, day=1)
+        c_start, c_end = month_bounds_utc(d.year, d.month, tz_key)
         chart_values.append(
             db.query(FileRecord)
-            .filter(FileRecord.created_at >= m_start, FileRecord.created_at < m_end)
+            .filter(FileRecord.created_at >= c_start, FileRecord.created_at < c_end)
             .count()
         )
 

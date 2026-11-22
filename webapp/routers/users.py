@@ -14,6 +14,7 @@ from webapp.policy import invalidate_permission_cache, permission_status_for_use
 from webapp.security import client_ip, hash_password, require
 from webapp.services.audit_service import write_audit
 from webapp.templating import templates_ctx as templates
+from webapp.timezone import get_tz_key, to_utc, utc_now
 
 router = APIRouter(prefix="/users", tags=["users"])
 
@@ -103,7 +104,7 @@ def user_detail(
             "perm_rows": perm_rows,
             "overrides": overrides,
             "permissions": permissions,
-            "now": datetime.utcnow(),
+            "now": utc_now(),
         },
     )
 
@@ -195,13 +196,16 @@ def set_override(
     if not target:
         return RedirectResponse("/users", status_code=303)
 
+    tz_key = get_tz_key(request)
+
     def parse_dt(value: str) -> Optional[datetime]:
         value = (value or "").strip()
         if not value:
             return None
         for fmt in ("%Y-%m-%dT%H:%M", "%Y-%m-%d %H:%M", "%Y-%m-%d"):
             try:
-                return datetime.strptime(value, fmt)
+                local = datetime.strptime(value, fmt)
+                return to_utc(local, tz_key)
             except ValueError:
                 continue
         return None
